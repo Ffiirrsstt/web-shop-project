@@ -6,6 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ProductType } from '../../../assets/Model/product-type';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-display-slide-img',
@@ -21,8 +22,7 @@ export class DisplaySlideImgComponent {
   canScrollLeft = false;
   canScrollRight = true;
 
-  MaxScrollRight!: number; //รอบทั้งหมดที่เลื่อนขวาได้
-  scrollSize = 100;
+  scrollSize = environment.scrollSizeSlide;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
@@ -57,9 +57,6 @@ export class DisplaySlideImgComponent {
       behavior: 'smooth',
     });
 
-    //ได้คลิกปุ่มขวาไป (เลื่อนได้จำกัด โดยจำกัดจำนวนการเลื่อนตามจำนวนเนื้อหาที่แสดงผลน่ะ)
-    this.MaxScrollRight -= 1;
-
     this.updateScrollButtons();
   }
 
@@ -77,6 +74,10 @@ export class DisplaySlideImgComponent {
   //ไม่งั้นเวลาไปถึงหน้าสุดท้าย แล้วย้อนกลับมา(กดซ้าย 1 ครั้ง)
   //เมื่อจะเลื่อนไปหน้าสุดท้ายใหม่ จะต้องกดเลื่อนไปขวาสองครั้ง
   adjustedScrollWidth(data: number) {
-    return Math.ceil(data / 100) * 100;
+    return Math.ceil(data / this.scrollSize) * this.scrollSize;
+  }
+
+  changeDisplayImgBig(path: string) {
+    this.imgBigDisplay = path;
   }
 }

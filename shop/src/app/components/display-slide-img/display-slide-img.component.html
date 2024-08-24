@@ -14,8 +14,8 @@
     <!-- รูปภาพที่ให้เลือกมาแสดงเป็นภาพใหญ่ -->
     <div #slider id="slider" class="flex overflow-x-hidden scroll-smooth space-x-2">
         <div *ngFor="let item of product.allImg" class="flex-shrink-0 w-16 h-16">
-            <img src="{{item}}" alt="{{product.title}}"
-                class="w-full h-full rounded-md shadow-md border-1 border-[var(--border-img)]">
+            <img src="{{item}}" alt="{{product.title}}" class="w-full h-full rounded-md shadow-md border-1 cursor-pointer
+                border-[var(--border-img)]" (click)="changeDisplayImgBig(item)">
         </div>
     </div>
 

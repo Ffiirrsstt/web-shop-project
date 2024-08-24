@@ -1,15 +1,17 @@
 <div>
     <app-nav></app-nav>
-    <div *ngIf="productData" class="w-full flex xxs:px-4 pb-4 md:py-4">
+    <div *ngIf="productData" class="w-full flex flex-col sm:flex-row xxs:px-4 pb-4 md:py-4
+        items-center xxs:items-start">
         <!-- สไลด์แสดงผลรูปภาพสินค้า -->
         <app-display-slide-img [product]="productData"></app-display-slide-img>
-        <div class="flex flex-col space-y-8">
+        <div class="flex flex-col items-center xxs:items-start space-y-8">
             <h2 class="text-2xl font-semibold text-[var(--text-main-dark)]">{{productData.title}}</h2>
             <div class="text-[var(--text-secondary-dark)] space-y-4">
                 <h3 class="text-2xl font-semibold">฿{{productData.price}}</h3>
-                <div>
+                <div class="space-y-3  xxs:space-y-0 sm:space-y-3 base:space-y-0">
                     <!-- จำนวนสินค้าที่ต้องการซื้อ -->
-                    <div class="flex items-center text-sm font-semibold">
+                    <div class="flex flex-col xxs:flex-row sm:flex-col base:flex-row 
+                    space-y-3  xxs:space-y-0 sm:space-y-3  base:space-y-0 base:items-center text-sm font-semibold">
                         <h4 class="w-36">
                             Quantity
                         </h4>
@@ -29,15 +31,16 @@
 
             </div>
             <!-- Add Yo Cart , Buy Now -->
-            <div class="space-x-3 text-xl text-[--text-main] font-medium">
+            <div
+                class="flex flex-col xs:flex-row space-y-3 xs:space-y-0 xs:space-x-3 text-sm base:text-lg md:text-xl text-[--text-main] font-medium">
                 <button class="
                                 bg-[var(--btn-secondary)] hover:bg-[var(--btn-secondary-hover)]  text-[var(--btn-text)]
                                 transition-all duration-100 rounded-md
-                                w-60 h-12">Add Yo Cart</button>
+                                 w-32 xxs:w-24 xs:w-36 sm:w-24 base:w-32 md:w-48 lg:w-60 h-12">Add Yo Cart</button>
                 <button class="
                                 bg-[var(--btn-main)] hover:bg-[var(--btn-main-hover)]  text-[var(--btn-text)]
                                 transition-all duration-100 rounded-md
-                                w-60 h-12">Buy Now</button>
+                                 w-32 xxs:w-24 xs:w-36 sm:w-24 base:w-32 md:w-48 lg:w-60 h-12">Buy Now</button>
             </div>
         </div>
     </div>

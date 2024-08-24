@@ -3,6 +3,7 @@ import { IEnvironment } from './environment.interface';
 export const environment: IEnvironment = {
   production: true,
   logo: '/assets/logo.png',
+  scrollSizeSlide: 100,
 
   // accessAssets: '/assets/',
   // // apiUrl: 'http://localhost/registration/api',
