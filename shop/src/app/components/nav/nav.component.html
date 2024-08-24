@@ -1,7 +1,8 @@
 <nav class="w-100 min-h-max xs:h-16 bg-[var(--bg-nav)] flex flex-col xxs:flex-row items-center justify-between">
     <!-- <img (click)="toIndex()" class="h-3/5 md:h-full md:min-w-max cursor-pointer" src="{{environments.logoUrl}}" -->
     <!-- logo -->
-    <div class="space-x-3 h-12 md:h-full md:w-1/3 md:min-w-max flex items-center cursor-pointer ">
+    <div (click)="toIndexPage()"
+        class="space-x-3 h-12 md:h-full md:w-1/3 md:min-w-max flex items-center cursor-pointer ">
         <img class="xs:pl-2 h-full md:h-full md:min-w-max text-[var(--text-nav)] " src="{{environments.logo}}"
             alt="MAHIDOL ENGINEERING">
         <h1 class="text-sm xs:text-xl font-extrabold text-[var(--text-nav)]">Roxana</h1>
