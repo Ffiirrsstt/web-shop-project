@@ -17,6 +17,7 @@ export const productDataList: ProductType[] = [
       '/assets/5s-2.jpeg',
     ],
     price: 186,
+    inventory: 25,
   },
   {
     id: '2',
@@ -24,6 +25,7 @@ export const productDataList: ProductType[] = [
     imgCover: '/assets/5s-2.jpeg',
     allImg: ['/assets/5s-1.jpeg', '/assets/5s-2.jpeg'],
     price: 199,
+    inventory: 1,
   },
   {
     id: '3',
@@ -31,6 +33,7 @@ export const productDataList: ProductType[] = [
     imgCover: '/assets/9g-1.jpeg',
     allImg: ['/assets/5s-1.jpeg', '/assets/5s-2.jpeg'],
     price: 129,
+    inventory: 6,
   },
   {
     id: '4',
@@ -38,6 +41,7 @@ export const productDataList: ProductType[] = [
     imgCover: '/assets/9g-2.jpeg',
     allImg: ['/assets/5s-1.jpeg', '/assets/5s-2.jpeg'],
     price: 56,
+    inventory: 1,
   },
   {
     id: '5',
@@ -45,6 +49,7 @@ export const productDataList: ProductType[] = [
     imgCover: '/assets/logo.png',
     allImg: ['/assets/5s-1.jpeg', '/assets/5s-2.jpeg'],
     price: 199,
+    inventory: 51,
   },
   {
     id: '6',
@@ -52,6 +57,7 @@ export const productDataList: ProductType[] = [
     imgCover: '/assets/5s-1.jpeg',
     allImg: ['/assets/5s-1.jpeg', '/assets/5s-2.jpeg'],
     price: 186,
+    inventory: 9,
   },
   {
     id: '7',
@@ -59,6 +65,7 @@ export const productDataList: ProductType[] = [
     imgCover: '/assets/5s-2.jpeg',
     allImg: ['/assets/5s-1.jpeg', '/assets/5s-2.jpeg'],
     price: 199,
+    inventory: 7,
   },
   {
     id: '8',
@@ -66,6 +73,7 @@ export const productDataList: ProductType[] = [
     imgCover: '/assets/9g-1.jpeg',
     allImg: ['/assets/5s-1.jpeg', '/assets/5s-2.jpeg'],
     price: 129,
+    inventory: 8,
   },
   {
     id: '9',
@@ -73,6 +81,7 @@ export const productDataList: ProductType[] = [
     imgCover: '/assets/9g-2.jpeg',
     allImg: ['/assets/5s-1.jpeg', '/assets/5s-2.jpeg'],
     price: 56,
+    inventory: 6,
   },
   {
     id: '10',
@@ -80,5 +89,6 @@ export const productDataList: ProductType[] = [
     imgCover: '/assets/logo.png',
     allImg: ['/assets/5s-1.jpeg', '/assets/5s-2.jpeg'],
     price: 199,
+    inventory: 55,
   },
 ];

@@ -10,6 +10,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { PageLoadingComponent } from './components/page-loading/page-loading.component';
 import { DisplaySlideImgComponent } from './components/display-slide-img/display-slide-img.component';
+import { FormsModule } from '@angular/forms';
+import { DisplayNumberIncrementDecrementComponent } from './components/display-number-increment-decrement/display-number-increment-decrement.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,11 @@ import { DisplaySlideImgComponent } from './components/display-slide-img/display
     ProductListComponent,
     ProductDetailComponent,
     PageLoadingComponent,
-    DisplaySlideImgComponent
+    DisplaySlideImgComponent,
+    DisplayNumberIncrementDecrementComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

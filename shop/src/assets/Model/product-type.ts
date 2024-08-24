@@ -4,4 +4,5 @@ export interface ProductType {
   imgCover: string;
   allImg: string[];
   price: number;
+  inventory: number;
 }

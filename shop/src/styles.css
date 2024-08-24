@@ -7,11 +7,17 @@
   --bg-nav: white;
 
   --text-nav: #575a5e;
-  --text-main-dark: #222823;
+  --text-main-dark: #5c5c5c;
+  --text-secondary-dark: #959b9d;
+  /* --text-main-dark: #222823; */
   --text-main: white;
   --text-price: #ffa500;
 
-  --btn-main: var(--text-price);
+  --btn-main: #ffa700;
+  --btn-main-hover: #ff8d00;
+  --btn-secondary: #ffde1a;
+  --btn-secondary-hover: #ffce00;
+  --btn-text: white;
 
   --icon: #222823;
 

@@ -10,6 +10,8 @@ import { productDataList } from '../../../assets/database/product-data-list';
 })
 export class ProductDetailComponent {
   productData!: ProductType;
+  productAmount!: number;
+
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -43,5 +45,9 @@ export class ProductDetailComponent {
 
     // หรือหากใช้ API, คุณสามารถเรียก API ที่นี่
     // this.productService.getProductById(id).subscribe(product => this.product = product);
+  }
+
+  receiveProductAmount(amount: number) {
+    this.productAmount = amount;
   }
 }

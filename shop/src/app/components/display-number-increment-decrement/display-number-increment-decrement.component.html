@@ -1,0 +1,6 @@
+<div class="flex h-7">
+    <button class="border-1 rounded-l-sm w-7 " (click)="decrementAmount()">-</button>
+    <input type="text" title="Quantity of items you want to buy" class="flex text-center border-1 w-14
+    text-[var(--text-main-dark)] font-extrabold cursor-default" [(ngModel)]="amount" (change)="checkAmount()">
+    <button class="border-1 rounded-r-sm w-7 " (click)="incrementAmount()">+</button>
+</div>
