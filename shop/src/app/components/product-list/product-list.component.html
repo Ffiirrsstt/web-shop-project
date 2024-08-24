@@ -1,0 +1,15 @@
+<!-- 13rem,1fr กำหนดขั้นต่ำ 13rem = 52px, ขั้นสูง 1fr = พื้นที่ส่วนที่เหลือ (ขยายตามพื้นที่ที่เหลืออยู่ในแถวได้มากที่สุด) -->
+<div class="xxs:grid xxs:grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-4">
+    <div *ngFor=" let product of productList" class="text-base cursor-pointer" (click)="openProductDetail(product.id)">
+        <div class="flex flex-col rounded-md bg-[var(--bg-block-main)]">
+            <div class="flex justify-center">
+                <img src="{{product.imgCover}}" alt="{{product.title}}" title="{{product.title}}"
+                    class="xxs:w-52 h-52 rounded-md">
+            </div>
+            <div class="space-y-3 p-3 bg-[var(--bg-block-main)] xss:w-52 shadow-sm">
+                <h3>{{ product.title }}</h3>
+                <h3 class="text-[var(--text-price)] font-semibold">฿{{ product.price }}</h3>
+            </div>
+        </div>
+    </div>
+</div>

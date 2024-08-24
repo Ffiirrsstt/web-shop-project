@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-main: #f4f6f6;
+  --bg-nav: white;
+
+  --text-nav: #575a5e;
+  --text-main-dark: #222823;
+  --text-main: white;
+  --text-price: #ffa500;
+
+  --btn-main: var(--text-price);
+
+  --icon: #222823;
+
+  --bg-block-main: white;
+  --bg-block: rgba(167, 162, 169, 0.2);
+  --bg-block-dark: rgba(167, 162, 169, 1);
+  --loadding-color: var(--text-price);
+  --loadding-bg-color: #e5e7eb;
+
+  --border-img: rgba(167, 162, 169, 0.4);
+}

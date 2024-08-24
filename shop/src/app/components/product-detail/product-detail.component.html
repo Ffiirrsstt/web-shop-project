@@ -1,0 +1,12 @@
+<div>
+    <app-nav></app-nav>
+    <div *ngIf="productData" class="w-full xxs:px-4 pb-4 md:py-4">
+        <!-- สไลด์แสดงผลรูปภาพสินค้า -->
+        <app-display-slide-img [product]="productData"></app-display-slide-img>
+        <div>test : {{productData.id}}</div>
+        <div>test : {{productData.title}}</div>
+        <div>test : {{productData.price}}</div>
+    </div>
+</div>
+
+<app-page-loading *ngIf="!productData"></app-page-loading>
