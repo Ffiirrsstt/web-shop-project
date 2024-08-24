@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductType } from '../../../assets/Model/product-type';
-import { productDataList } from '../../../assets/database/product-data-list';
+import { ProductType } from '../../../../assets/Model/product-type';
+import { productDataList } from '../../../../assets/database/product-data-list';
 
 @Component({
   selector: 'app-product-detail',

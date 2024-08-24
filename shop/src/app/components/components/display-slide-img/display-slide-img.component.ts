@@ -5,8 +5,8 @@ import {
   Input,
   ViewChild,
 } from '@angular/core';
-import { ProductType } from '../../../assets/Model/product-type';
-import { environment } from '../../../environments/environment.prod';
+import { ProductType } from '../../../../assets/Model/product-type';
+import { environment } from '../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-display-slide-img',

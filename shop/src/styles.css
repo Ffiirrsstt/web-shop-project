@@ -5,11 +5,14 @@
 :root {
   --bg-main: #f4f6f6;
   --bg-nav: white;
+  --bg-block-login-signup: white;
+  --bg-page-login-signup: black;
 
+  --text-block-login-signup: black;
+  --text-page-login-signup: #f4f6f6;
   --text-nav: #575a5e;
   --text-main-dark: #5c5c5c;
   --text-secondary-dark: #959b9d;
-  /* --text-main-dark: #222823; */
   --text-main: white;
   --text-price: #ffa500;
 

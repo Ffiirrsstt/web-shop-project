@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { environment } from '../../../environments/environment.prod';
-import { RoutingService } from '../../services/routing.service';
+import { environment } from '../../../../environments/environment.prod';
+import { RoutingService } from '../../../services/routing.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,8 +10,8 @@ import { RoutingService } from '../../services/routing.service';
 export class NavComponent {
   environments = environment;
   //เทสว่า login อยู่มั้้ย
-  // loggedIn = false;
-  loggedIn = true;
+  loggedIn = false;
+  // loggedIn = true;
 
   constructor(private routing: RoutingService) {}
   toIndexPage() {

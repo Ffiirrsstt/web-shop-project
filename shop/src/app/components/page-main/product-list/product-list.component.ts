@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { productDataList } from '../../../assets/database/product-data-list';
+import { productDataList } from '../../../../assets/database/product-data-list';
 
 @Component({
   selector: 'app-product-list',
