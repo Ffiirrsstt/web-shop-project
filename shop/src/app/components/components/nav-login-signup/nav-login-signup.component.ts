@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { environment } from '../../../../environments/environment.prod';
-import { RoutingService } from '../../../services/routing.service';
+import { RoutingService } from '../../../services/manage/routing.service';
 
 @Component({
   selector: 'app-nav-login-signup',

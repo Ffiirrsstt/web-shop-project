@@ -1,0 +1,34 @@
+using api_shop.Validation;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
+namespace API.Model
+{
+  public class Users
+  {
+    [Key]
+    public int Id { get; set; }
+
+    [Required(ErrorMessage = "Please enter your username.")]
+    public string Username { get; set; } 
+    [Required(ErrorMessage = "Please enter your password.")]
+    public string Password { get; set; }
+
+    [Required(ErrorMessage = "Please confirm your password.")]
+    [ConfirmPassword]
+    public string PasswordConfirm { get; set; }
+
+    /*[Required(ErrorMessage = "Please enter your first name.")]
+    public string FirstName { get; set; }
+    [Required(ErrorMessage = "Please enter your last name.")]
+    public string LastName { get; set; }
+    //อีเมลล์ในกรณีที่ผู้ใช้กรอกเข้ามาตอนสมัคร
+
+    [Required(ErrorMessage = "Please enter your email address.")]
+    [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
+    public string Email { get; set; }*/
+    public string Token { get; set; } = string.Empty;
+    /*[AllowedValues("USER","ADMIN")]
+    public string Role { get; set; } = "USER";*/
+  }
+}

@@ -16,6 +16,8 @@ import { ProductListComponent } from './components/page-main/product-list/produc
 import { NavLoginSignupComponent } from './components/components/nav-login-signup/nav-login-signup.component';
 import { SignupComponent } from './components/components/signup/signup.component';
 import { LoginSignupComponent } from './components/page-main/login-signup/login-signup.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AlertOkComponent } from './components/components/alert/alert-ok/alert-ok.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +34,15 @@ import { LoginSignupComponent } from './components/page-main/login-signup/login-
     LoginComponent,
     SignupComponent,
     LoginSignupComponent,
+    AlertOkComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

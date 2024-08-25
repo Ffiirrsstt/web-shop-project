@@ -2,6 +2,8 @@ import { IEnvironment } from './environment.interface';
 
 export const environment: IEnvironment = {
   production: true,
+  apiBase: 'https://localhost:7220/api',
+  alertDelay: 2000,
   logo: '/assets/logo.png',
   scrollSizeSlide: 100,
 
