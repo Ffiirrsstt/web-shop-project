@@ -1,0 +1,14 @@
+<form [formGroup]="signupForm" (ngSubmit)="onsubmitSignup()" class="space-y-8">
+    <input formControlName="username" type="text" placeholder="Please enter your username"
+        class="w-full h-10 border-1 border-[var(--border-img)] p-3 outline-none">
+    <input formControlName="password" type="password" placeholder="Please enter your password"
+        class="w-full h-10 border-1 border-[var(--border-img)] p-3 outline-none">
+    <button type="submit" class="w-full h-10 
+        bg-[var(--btn-main)] hover:bg-[var(--btn-main-hover)]  text-[var(--btn-text)]
+        transition-all duration-100 rounded-md">
+        <h4 class="font-bold">
+            SIGN UP
+        </h4>
+    </button>
+
+</form>

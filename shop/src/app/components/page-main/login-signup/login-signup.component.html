@@ -1,0 +1,36 @@
+<div class="w-100 min-h-screen bg-[var(--bg-main)] h-screen">
+
+    <app-nav-login-signup></app-nav-login-signup>
+
+    <div class="text-[var(--text-page-login-signup)] flex cursor-default
+    h-[580px] bg-[var(--bg-page-login-signup)]">
+        <div class="flex flex-col items-center justify-center w-1/2">
+            <img class="w-72 h-72" src="{{environments.logo}}" alt="Roxana Marketplace Logo">
+            <h1 class="text-5xl font-extrabold">Roxana</h1>
+            <h2 class="text-3xl font-semibold">Welcome to the Roxana Marketplace</h2>
+        </div>
+        <div class="flex-1 text-[var(--text-block-login-signup)] flex items-center justify-center">
+            <div class="bg-[var(--bg-block-login-signup)] w-[450px] h-[450px]
+             rounded-md p-4 space-y-8 text-base">
+                <h2 class="text-2xl font-semibold">{{isSignupPage?"Sign Up":"Log in"}}</h2>
+
+                <div>
+                    <app-login *ngIf="!isSignupPage"></app-login>
+                    <app-signup *ngIf="isSignupPage"></app-signup>
+                </div>
+
+                <!-- link ไปอีกหน้า -->
+                <div class="flex justify-center space-x-2 text-base">
+                    <h5>{{isSignupPage?"Have an account?":"New to Roxana?"}}</h5>
+                    <a class="text-[var(--text-link)] hover:text-[var(--text-link-hover)]"
+                        [href]="isSignupPage ? 'login' : 'signup'">
+                        <h6 class="font-extrabold">
+                            {{isSignupPage?"Login":"Signup"}}
+                        </h6>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

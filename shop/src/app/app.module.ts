@@ -9,11 +9,13 @@ import { SearchComponent } from './components/components/search/search.component
 import { ProductDetailComponent } from './components/page-main/product-detail/product-detail.component';
 import { PageLoadingComponent } from './components/page/page-loading/page-loading.component';
 import { DisplaySlideImgComponent } from './components/components/display-slide-img/display-slide-img.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplayNumberIncrementDecrementComponent } from './components/components/display-number-increment-decrement/display-number-increment-decrement.component';
-import { LoginComponent } from './components/page-main/login/login.component';
+import { LoginComponent } from './components/components/login/login.component';
 import { ProductListComponent } from './components/page-main/product-list/product-list.component';
 import { NavLoginSignupComponent } from './components/components/nav-login-signup/nav-login-signup.component';
+import { SignupComponent } from './components/components/signup/signup.component';
+import { LoginSignupComponent } from './components/page-main/login-signup/login-signup.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,12 @@ import { NavLoginSignupComponent } from './components/components/nav-login-signu
     PageLoadingComponent,
     DisplaySlideImgComponent,
     DisplayNumberIncrementDecrementComponent,
-    LoginComponent,
     NavLoginSignupComponent,
+    LoginComponent,
+    SignupComponent,
+    LoginSignupComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
