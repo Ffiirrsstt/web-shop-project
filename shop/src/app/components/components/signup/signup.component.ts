@@ -44,8 +44,8 @@ export class SignupComponent {
     this.isSubmitted = true;
     const dataSend = {
       username: this.signupForm.controls['username'].value,
-      password: this.signupForm.controls['password'].value,
-      passwordConfirm: this.signupForm.controls['passwordConfirm'].value,
+      password: this.passwordDisplay, //เพราะไม่งั้นมันจะไปเก็บในฐานข้อมูลเป็น *** งี้น่ะ
+      passwordConfirm: this.passwordDisplayConfirm,
     };
 
     await this.signup.apiSignup(dataSend).subscribe({
@@ -53,7 +53,8 @@ export class SignupComponent {
         this.sendResponseSignup.emit({ status: 200, message: res.message });
       },
       error: (err) => {
-        const message = this.data.displayError(err.error.errors);
+        const message = this.data.displayError(err);
+        console.log(message);
 
         this.sendResponseSignup.emit({ status: err.status, message });
       },

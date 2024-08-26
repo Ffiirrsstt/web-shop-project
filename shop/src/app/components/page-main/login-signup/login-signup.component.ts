@@ -47,7 +47,8 @@ export class LoginSignupComponent {
     this.isSignupPage = currentUrl.includes('/signup');
   }
 
-  async receiveResponseSignup(data: resLoginSingup) {
+  async receiveResponseLoginSignup(data: resLoginSingup) {
+    console.log(data);
     this.progressbar.alertOKError(data);
 
     // this.router.navigate(['/page-message'], {

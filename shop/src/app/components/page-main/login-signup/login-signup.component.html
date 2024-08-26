@@ -15,8 +15,10 @@
                 <h2 class="text-2xl font-semibold">{{isSignupPage?"Sign Up":"Log in"}}</h2>
 
                 <div>
-                    <app-login *ngIf="!isSignupPage"></app-login>
-                    <app-signup *ngIf="isSignupPage" (sendResponseSignup)="receiveResponseSignup($event)"></app-signup>
+                    <app-login *ngIf="!isSignupPage"
+                        (sendResponseLogin)="receiveResponseLoginSignup($event)"></app-login>
+                    <app-signup *ngIf="isSignupPage"
+                        (sendResponseSignup)="receiveResponseLoginSignup($event)"></app-signup>
                 </div>
 
                 <!-- link ไปอีกหน้า -->

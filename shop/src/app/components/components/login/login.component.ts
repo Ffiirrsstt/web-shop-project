@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { resLoginSingup } from '../../../../assets/Model/response-login-signup';
 import { FormGroupService } from '../../../services/form/form-group.service';
 import { PasswordDisplayService } from '../../../services/form/password-display.service';
-import { SignupService } from '../../../servicesSwagger/signup.service';
 import { DataService } from '../../../services/manage/data.service';
+import { LoginService } from '../../../servicesSwagger/login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ import { DataService } from '../../../services/manage/data.service';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  @Output() sendResponseSignup = new EventEmitter<resLoginSingup>();
+  @Output() sendResponseLogin = new EventEmitter<resLoginSingup>();
   loginForm!: FormGroup;
 
   isHidePassword = true;
@@ -24,7 +24,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private form: FormGroupService,
     private pwd: PasswordDisplayService,
-    private signup: SignupService,
+    private login: LoginService,
     private data: DataService
   ) {}
 
@@ -34,19 +34,22 @@ export class LoginComponent {
 
   async onsubmitSignup() {
     this.isSubmitted = true;
+    const pwd = this.loginForm.controls['password'].value;
     const dataSend = {
       username: this.loginForm.controls['username'].value,
-      password: this.loginForm.controls['password'].value,
+      password: pwd,
+      //ใส่ไปไม่ให้ error เพราะตัวเช็กที่อยู่ใน c# น่ะ
+      passwordConfirm: pwd,
     };
 
-    await this.signup.apiSignup(dataSend).subscribe({
+    await this.login.apiLogin(dataSend).subscribe({
       next: (res) => {
-        this.sendResponseSignup.emit({ status: 200, message: res.message });
+        this.sendResponseLogin.emit({ status: 200, message: res.message });
       },
       error: (err) => {
-        const message = this.data.displayError(err.error.errors);
+        const message = this.data.displayError(err);
 
-        this.sendResponseSignup.emit({ status: err.status, message });
+        this.sendResponseLogin.emit({ status: err.status, message });
       },
     });
   }

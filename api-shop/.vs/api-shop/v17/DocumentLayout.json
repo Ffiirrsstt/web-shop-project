@@ -3,28 +3,24 @@
   "WorkspaceRootPath": "D:\\project\\web-shop-project\\api-shop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\project\\web-shop-project\\api-shop\\api-shop\\Migrations\\20240826143025_user-ver-5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:api-shop\\Migrations\\20240826143025_user-ver-5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|d:\\project\\web-shop-project\\api-shop\\api-shop\\model\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|solutionrelative:api-shop\\model\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\project\\web-shop-project\\api-shop\\api-shop\\Migrations\\20240826142506_user-ver-4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:api-shop\\Migrations\\20240826142506_user-ver-4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|d:\\project\\web-shop-project\\api-shop\\api-shop\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|solutionrelative:api-shop\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|d:\\project\\web-shop-project\\api-shop\\api-shop\\services\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|solutionrelative:api-shop\\services\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|d:\\project\\web-shop-project\\api-shop\\api-shop\\controllers\\signupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|solutionrelative:api-shop\\controllers\\signupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|d:\\project\\web-shop-project\\api-shop\\api-shop\\validation\\confirmpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|solutionrelative:api-shop\\validation\\confirmpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|d:\\project\\web-shop-project\\api-shop\\api-shop\\controllers\\apiresponsecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|solutionrelative:api-shop\\controllers\\apiresponsecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|d:\\project\\web-shop-project\\api-shop\\api-shop\\services\\checkuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|solutionrelative:api-shop\\services\\checkuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,66 +43,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20240826143025_user-ver-5.cs",
-              "DocumentMoniker": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Migrations\\20240826143025_user-ver-5.cs",
-              "RelativeDocumentMoniker": "api-shop\\Migrations\\20240826143025_user-ver-5.cs",
-              "ToolTip": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Migrations\\20240826143025_user-ver-5.cs",
-              "RelativeToolTip": "api-shop\\Migrations\\20240826143025_user-ver-5.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T14:30:25.749Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "20240826142506_user-ver-4.cs",
-              "DocumentMoniker": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Migrations\\20240826142506_user-ver-4.cs",
-              "RelativeDocumentMoniker": "api-shop\\Migrations\\20240826142506_user-ver-4.cs",
-              "ToolTip": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Migrations\\20240826142506_user-ver-4.cs",
-              "RelativeToolTip": "api-shop\\Migrations\\20240826142506_user-ver-4.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T14:25:06.471Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ConfirmPassword.cs",
-              "DocumentMoniker": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Validation\\ConfirmPassword.cs",
-              "RelativeDocumentMoniker": "api-shop\\Validation\\ConfirmPassword.cs",
-              "ToolTip": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Validation\\ConfirmPassword.cs",
-              "RelativeToolTip": "api-shop\\Validation\\ConfirmPassword.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA0AAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-25T16:21:13.212Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Users.cs",
               "DocumentMoniker": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Model\\Users.cs",
               "RelativeDocumentMoniker": "api-shop\\Model\\Users.cs",
               "ToolTip": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Model\\Users.cs",
               "RelativeToolTip": "api-shop\\Model\\Users.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAiwBQAAAA/AAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwBEAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-25T15:45:16.721Z",
+              "WhenOpened": "2024-08-26T14:50:34.598Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ApiResponseController.cs",
-              "DocumentMoniker": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Controllers\\ApiResponseController.cs",
-              "RelativeDocumentMoniker": "api-shop\\Controllers\\ApiResponseController.cs",
-              "ToolTip": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Controllers\\ApiResponseController.cs",
-              "RelativeToolTip": "api-shop\\Controllers\\ApiResponseController.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAvwA8AAAA+AAAA",
+              "DocumentIndex": 2,
+              "Title": "Token.cs",
+              "DocumentMoniker": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Services\\Token.cs",
+              "RelativeDocumentMoniker": "api-shop\\Services\\Token.cs",
+              "ToolTip": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Services\\Token.cs",
+              "RelativeToolTip": "api-shop\\Services\\Token.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-25T15:21:51.866Z",
+              "WhenOpened": "2024-08-26T14:50:07.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "api-shop\\Controllers\\LoginController.cs",
+              "ToolTip": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "api-shop\\Controllers\\LoginController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABQAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T14:41:18.05Z",
               "EditorCaption": ""
             },
             {
@@ -117,9 +87,22 @@
               "RelativeDocumentMoniker": "api-shop\\Controllers\\SignupController.cs",
               "ToolTip": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Controllers\\SignupController.cs",
               "RelativeToolTip": "api-shop\\Controllers\\SignupController.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAcwBkAAAANAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAYwBEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-25T15:19:10.313Z",
+              "WhenOpened": "2024-08-26T14:49:39.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CheckUser.cs",
+              "DocumentMoniker": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Services\\CheckUser.cs",
+              "RelativeDocumentMoniker": "api-shop\\Services\\CheckUser.cs",
+              "ToolTip": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Services\\CheckUser.cs",
+              "RelativeToolTip": "api-shop\\Services\\CheckUser.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T14:46:20.661Z",
               "EditorCaption": ""
             }
           ]

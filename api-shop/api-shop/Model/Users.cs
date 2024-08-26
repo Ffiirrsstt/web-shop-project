@@ -14,9 +14,7 @@ namespace API.Model
     [Required(ErrorMessage = "- Please enter your password.")]
     public string Password { get; set; }
 
-    /*[Required(ErrorMessage = "- Please confirm your password.")] 
-     ไม่ req เพราะเวลา login ไม่ได้กรอกน่ะ
-    หมายเหตุ : password ปล่อยว่างไม่ได้อยู่แล้ว และถ้า ตัวยืนยันรหัสผ่านไม่ตรงกับรหัสผ่านก็ไม่ได้น่ะนะ*/
+    [Required(ErrorMessage = "- Please confirm your password.")] 
     [ConfirmPassword]
     public string PasswordConfirm { get; set; } = string.Empty;
 
