@@ -35,5 +35,7 @@
   --loadding-bg-color: #e5e7eb;
 
   --border-img: rgba(167, 162, 169, 0.4);
-  --border-alert-ok: green;
+  --border-alert: var(--bg-block-dark);
+
+  --progress-alert-ok: green;
 }

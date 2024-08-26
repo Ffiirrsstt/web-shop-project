@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\project\\web-shop-project\\api-shop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\project\\web-shop-project\\api-shop\\api-shop\\Migrations\\20240825163233_user-ver2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:api-shop\\Migrations\\20240825163233_user-ver2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|d:\\project\\web-shop-project\\api-shop\\api-shop\\migrations\\20240825163233_user-ver2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|solutionrelative:api-shop\\migrations\\20240825163233_user-ver2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4D7941E8-9CCC-4133-BC82-321AC6EFF1FB}|api-shop\\api-shop.csproj|d:\\project\\web-shop-project\\api-shop\\api-shop\\validation\\confirmpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -63,8 +63,7 @@
               "RelativeToolTip": "api-shop\\Validation\\ConfirmPassword.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-25T16:21:13.212Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-25T16:21:13.212Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "RelativeToolTip": "api-shop\\Model\\Users.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAUwBIAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-25T15:45:16.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-25T15:45:16.721Z"
             },
             {
               "$type": "Document",
@@ -89,8 +87,7 @@
               "RelativeToolTip": "api-shop\\Controllers\\ApiResponseController.cs",
               "ViewState": "AQIAAA8AAAAAAAAAAAAvwA8AAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-25T15:21:51.866Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-25T15:21:51.866Z"
             },
             {
               "$type": "Document",
@@ -102,8 +99,7 @@
               "RelativeToolTip": "api-shop\\Controllers\\SignupController.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAAcwBkAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-25T15:19:10.313Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-25T15:19:10.313Z"
             }
           ]
         }

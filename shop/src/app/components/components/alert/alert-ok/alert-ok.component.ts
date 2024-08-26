@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -6,6 +7,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { interval, Subject, take, takeUntil } from 'rxjs';
+import { environment } from '../../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-alert-ok',
@@ -14,8 +16,7 @@ import { interval, Subject, take, takeUntil } from 'rxjs';
 })
 export class AlertOkComponent {
   @Input() messageAlertOk = '';
-  @Input() progress = 0;
-  // @Input() startProgress: boolean = true;
+  @Input() progressbar = 0;
   @Output() sendMessageAlertOk = new EventEmitter<string>();
 
   closeAlert() {

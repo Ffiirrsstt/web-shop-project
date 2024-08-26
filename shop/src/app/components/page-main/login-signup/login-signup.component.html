@@ -34,7 +34,19 @@
         </div>
     </div>
 
-    <!-- [startProgress]="true" -->
-    <app-alert-ok *ngIf="messageAlert!=''" [messageAlertOk]="messageAlert" [progress]="progressbar"
+    <div>
+        <div>
+            {{progress}}
+        </div>
+        <div>
+            test : {{messageAlert}}
+        </div>
+    </div>
+    <app-alert-ok *ngIf="messageAlert!=''" [messageAlertOk]="messageAlert" [progressbar]="progress"
         (sendMessageAlertOk)="receiveMessageAlertOk($event)"></app-alert-ok>
+
+    <!-- [progress]="progressbar" -->
+    <!-- <app-alert-ok *ngIf="messageAlert!=''" [messageAlertOk]="messageAlert" [alertTimeoutOk]="alertTimeout"
+        [progressIntervalOk]="progressInterval" (sendMessageAlertOk)="receiveMessageAlertOk($event)"
+        (sendAlertTimeoutOk)="receiveAlertTimeoutOk($event)"></app-alert-ok> -->
 </div>
