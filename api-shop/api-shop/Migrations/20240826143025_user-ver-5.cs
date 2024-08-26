@@ -10,7 +10,7 @@ namespace api_shop.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
+               
         }
 
         /// <inheritdoc />
