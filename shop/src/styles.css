@@ -4,14 +4,21 @@
 
 :root {
   --bg-main: #f4f6f6;
+  --bg-alert: white;
   --bg-nav: white;
+  --bg-block-login-signup: white;
+  --bg-page-login-signup: black;
 
+  --text-block-login-signup: black;
+  --text-page-login-signup: #f4f6f6;
   --text-nav: #575a5e;
   --text-main-dark: #5c5c5c;
   --text-secondary-dark: #959b9d;
-  /* --text-main-dark: #222823; */
   --text-main: white;
   --text-price: #ffa500;
+  --text-link: #ff8d00;
+  --text-link-hover: #ffa700;
+  --text-error: red;
 
   --btn-main: #ffa700;
   --btn-main-hover: #ff8d00;
@@ -28,4 +35,9 @@
   --loadding-bg-color: #e5e7eb;
 
   --border-img: rgba(167, 162, 169, 0.4);
+  --border-alert: var(--bg-block-dark);
+
+  /* alert */
+  --alert-ok: green;
+  --alert-error: red;
 }

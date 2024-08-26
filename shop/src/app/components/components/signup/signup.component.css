@@ -1,0 +1,9 @@
+.error {
+  color: var(--text-error);
+  border: 1px solid var(--text-error);
+}
+
+input.error::placeholder {
+  color: var(--text-error);
+  opacity: 1;
+}
