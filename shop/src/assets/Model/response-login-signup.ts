@@ -1,9 +1,4 @@
-export interface resLoginSingupOk {
+export interface resLoginSingup {
   status: number;
   message: string;
-}
-
-export interface resLoginSingupErrors {
-  status: number;
-  errors: object;
 }

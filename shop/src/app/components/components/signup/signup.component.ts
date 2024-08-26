@@ -4,10 +4,7 @@ import { passwordMatchValidator } from '../../../validator/passwordMatchValidato
 import { FormGroupService } from '../../../services/form/form-group.service';
 import { PasswordDisplayService } from '../../../services/form/password-display.service';
 import { SignupService } from '../../../servicesSwagger/signup.service';
-import {
-  resLoginSingupErrors,
-  resLoginSingupOk,
-} from '../../../../assets/Model/response-login-signup';
+import { resLoginSingup } from '../../../../assets/Model/response-login-signup';
 
 @Component({
   selector: 'app-signup',
@@ -15,9 +12,7 @@ import {
   styleUrl: './signup.component.css',
 })
 export class SignupComponent {
-  @Output() sendResponseSignup = new EventEmitter<
-    resLoginSingupOk | resLoginSingupErrors
-  >();
+  @Output() sendResponseSignup = new EventEmitter<resLoginSingup>();
 
   signupForm!: FormGroup;
 

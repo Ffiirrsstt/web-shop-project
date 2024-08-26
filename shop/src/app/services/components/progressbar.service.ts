@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  resLoginSingupErrors,
-  resLoginSingupOk,
-} from '../../../assets/Model/response-login-signup';
+import { resLoginSingup } from '../../../assets/Model/response-login-signup';
 import { environment } from '../../../environments/environment.prod';
 import { BehaviorSubject } from 'rxjs';
 
@@ -15,14 +12,27 @@ export class ProgressbarService {
   //อยากให้แชร์ progress กับ components แบบเรียลไทม์น่ะ
   private progressSubject = new BehaviorSubject<number>(0);
   progress$ = this.progressSubject.asObservable();
-  // public progress = 0;
-  public messageAlert = '';
+
+  private messageAlertOkSubject = new BehaviorSubject<string>('');
+  messageAlertOk$ = this.messageAlertOkSubject.asObservable();
+
+  private messageAlertErrorSubject = new BehaviorSubject<string>('');
+  messageAlertError$ = this.messageAlertErrorSubject.asObservable();
   progressInterval!: any;
 
   constructor() {}
 
-  alertOK(data: resLoginSingupOk | resLoginSingupErrors) {
-    this.messageAlert = (data as resLoginSingupOk)?.message;
+  alertOKError(data: resLoginSingup) {
+    if (data?.status === 200) {
+      this.messageAlertOkSubject.next(data?.message);
+      this.alert(this.messageAlertOkSubject);
+    } else {
+      this.messageAlertErrorSubject.next(data?.message);
+      this.alert(this.messageAlertErrorSubject);
+    }
+  }
+
+  alert(subjectClose: any) {
     // // ยกเลิกการปิด alert ที่รอดำเนินการอยู่ก่อนหน้านี้ (ถ้ามี) (ไม่ให้มีปัญหาเวลากดปุ่มซ้ำ ๆ แล้ว alert ทับกัน)
     if (this.alertTimeout) {
       clearTimeout(this.alertTimeout);
@@ -32,7 +42,7 @@ export class ProgressbarService {
 
     //ให้ปิด alert อัตโนมัติเมื่อผ่านไปตามที่กำหนด
     this.alertTimeout = setTimeout(async () => {
-      this.messageAlert = '';
+      subjectClose.next('');
     }, environment.alertDelay);
   }
 
