@@ -11,7 +11,7 @@ namespace api_shop.Validation
 
             if (model.Password != model.PasswordConfirm)
             {
-                return new ValidationResult("Please enter the confirmation code to match the password.");
+                return new ValidationResult("- Please enter the confirmation code to match the password.");
             }
 
             return ValidationResult.Success;

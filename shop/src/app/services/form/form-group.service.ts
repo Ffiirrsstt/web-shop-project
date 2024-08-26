@@ -14,4 +14,11 @@ export class FormGroupService {
       passwordConfirm: ['', Validators.required],
     };
   }
+
+  setFormLogin() {
+    return {
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    };
+  }
 }

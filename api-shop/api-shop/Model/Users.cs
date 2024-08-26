@@ -9,14 +9,16 @@ namespace API.Model
     [Key]
     public int Id { get; set; }
 
-    [Required(ErrorMessage = "Please enter your username.")]
+    [Required(ErrorMessage = "- Please enter your username.")]
     public string Username { get; set; } 
-    [Required(ErrorMessage = "Please enter your password.")]
+    [Required(ErrorMessage = "- Please enter your password.")]
     public string Password { get; set; }
 
-    [Required(ErrorMessage = "Please confirm your password.")]
+    /*[Required(ErrorMessage = "- Please confirm your password.")] 
+     ไม่ req เพราะเวลา login ไม่ได้กรอกน่ะ
+    หมายเหตุ : password ปล่อยว่างไม่ได้อยู่แล้ว และถ้า ตัวยืนยันรหัสผ่านไม่ตรงกับรหัสผ่านก็ไม่ได้น่ะนะ*/
     [ConfirmPassword]
-    public string PasswordConfirm { get; set; }
+    public string PasswordConfirm { get; set; } = string.Empty;
 
     /*[Required(ErrorMessage = "Please enter your first name.")]
     public string FirstName { get; set; }

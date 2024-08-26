@@ -7,29 +7,32 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class ProgressbarService {
-  alertTimeout: any;
   //ใช้แสดงผล progress
   //อยากให้แชร์ progress กับ components แบบเรียลไทม์น่ะ
   private progressSubject = new BehaviorSubject<number>(0);
   progress$ = this.progressSubject.asObservable();
 
-  private messageAlertOkSubject = new BehaviorSubject<string>('');
-  messageAlertOk$ = this.messageAlertOkSubject.asObservable();
+  private messageAlertSubject = new BehaviorSubject<string>('');
+  messageAlert$ = this.messageAlertSubject.asObservable();
 
-  private messageAlertErrorSubject = new BehaviorSubject<string>('');
-  messageAlertError$ = this.messageAlertErrorSubject.asObservable();
+  private colorSubject = new BehaviorSubject<string>('');
+  color$ = this.colorSubject.asObservable();
+
   progressInterval!: any;
+  alertTimeout: any;
+
+  //ไว้บน ๆ ให้แก้ไขง่าย ๆ น่ะ
+  colorOk = 'var(--alert-ok)';
+  colorError = 'var(--alert-error)';
 
   constructor() {}
 
   alertOKError(data: resLoginSingup) {
-    if (data?.status === 200) {
-      this.messageAlertOkSubject.next(data?.message);
-      this.alert(this.messageAlertOkSubject);
-    } else {
-      this.messageAlertErrorSubject.next(data?.message);
-      this.alert(this.messageAlertErrorSubject);
-    }
+    if (data?.status === 200) this.colorSubject.next(this.colorOk);
+    else this.colorSubject.next(this.colorError);
+
+    this.messageAlertSubject.next(data.message);
+    this.alert(this.messageAlertSubject);
   }
 
   alert(subjectClose: any) {

@@ -15,11 +15,11 @@ import { environment } from '../../../../../environments/environment.prod';
   styleUrl: './alert-ok.component.css',
 })
 export class AlertOkComponent {
-  @Input() messageAlertOk = '';
+  @Input() messageAlert = '';
   @Input() progressbar = 0;
-  @Output() sendMessageAlertOk = new EventEmitter<string>();
+  @Output() sendMessageAlert = new EventEmitter<string>();
 
   closeAlert() {
-    this.sendMessageAlertOk.emit('');
+    this.sendMessageAlert.emit('');
   }
 }

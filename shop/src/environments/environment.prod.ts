@@ -3,7 +3,7 @@ import { IEnvironment } from './environment.interface';
 export const environment: IEnvironment = {
   production: true,
   apiBase: 'https://localhost:7220/api',
-  alertDelay: 4000,
+  alertDelay: 6000,
   logo: '/assets/logo.png',
   scrollSizeSlide: 100,
 

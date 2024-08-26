@@ -18,6 +18,8 @@ import { SignupComponent } from './components/components/signup/signup.component
 import { LoginSignupComponent } from './components/page-main/login-signup/login-signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertOkComponent } from './components/components/alert/alert-ok/alert-ok.component';
+import { AlertErrorComponent } from './components/components/alert/alert-error/alert-error.component';
+import { AlertComponent } from './components/components/alert/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { AlertOkComponent } from './components/components/alert/alert-ok/alert-o
     SignupComponent,
     LoginSignupComponent,
     AlertOkComponent,
+    AlertErrorComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

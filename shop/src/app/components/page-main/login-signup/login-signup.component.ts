@@ -13,7 +13,8 @@ export class LoginSignupComponent {
   environments = environment;
   isSignupPage!: boolean;
 
-  messageAlertOk = '';
+  messageAlert = '';
+  color = '';
   progress = 0;
 
   constructor(
@@ -32,8 +33,11 @@ export class LoginSignupComponent {
     this.progressbar.progress$.subscribe((progressbar) => {
       this.progress = progressbar;
     });
-    this.progressbar.messageAlertOk$.subscribe((message) => {
-      this.messageAlertOk = message;
+    this.progressbar.messageAlert$.subscribe((message) => {
+      this.messageAlert = message;
+    });
+    this.progressbar.color$.subscribe((color) => {
+      this.color = color;
     });
   }
 
@@ -44,16 +48,14 @@ export class LoginSignupComponent {
   }
 
   async receiveResponseSignup(data: resLoginSingup) {
-    // if (data?.status === 200) {
     this.progressbar.alertOKError(data);
-    // }
 
     // this.router.navigate(['/page-message'], {
     //   queryParams: { message: (data as resLoginSingupOk)?.message },
     // });
   }
 
-  receiveMessageAlertOk(message: string) {
-    this.messageAlertOk = message;
+  receiveMessageAlert(message: string) {
+    this.messageAlert = message;
   }
 }

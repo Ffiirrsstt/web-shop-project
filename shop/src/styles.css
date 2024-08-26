@@ -37,5 +37,7 @@
   --border-img: rgba(167, 162, 169, 0.4);
   --border-alert: var(--bg-block-dark);
 
-  --progress-alert-ok: green;
+  /* alert */
+  --alert-ok: green;
+  --alert-error: red;
 }

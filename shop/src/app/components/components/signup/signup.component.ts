@@ -5,6 +5,7 @@ import { FormGroupService } from '../../../services/form/form-group.service';
 import { PasswordDisplayService } from '../../../services/form/password-display.service';
 import { SignupService } from '../../../servicesSwagger/signup.service';
 import { resLoginSingup } from '../../../../assets/Model/response-login-signup';
+import { DataService } from '../../../services/manage/data.service';
 
 @Component({
   selector: 'app-signup',
@@ -22,11 +23,15 @@ export class SignupComponent {
   isHidePasswordConfirm = true;
   passwordDisplayConfirm: string = '';
 
+  // เช็กว่ามีการ submit ไปยัง ใช้เวลาไม่แก้ไข input แต่กด submit ไปแล้วให้สามารถขึ้น error เตือนน่ะ (small)
+  isSubmitted = false;
+
   constructor(
     private fb: FormBuilder,
     private form: FormGroupService,
     private pwd: PasswordDisplayService,
-    private signup: SignupService
+    private signup: SignupService,
+    private data: DataService
   ) {}
 
   ngOnInit(): void {
@@ -36,21 +41,7 @@ export class SignupComponent {
   }
 
   async onsubmitSignup() {
-    //ย้ายไปเช็กใน api
-    // if (
-    //   this.signupForm.controls['username'].hasError('required') ||
-    //   this.signupForm.controls['password'].hasError('required') ||
-    //   this.signupForm.controls['passwordConfirm'].hasError('required')
-    // ) {
-    //   alert('กรุณากรอกข้อมูลให้ครบถ้วน');
-    //   return;
-    // }
-    // const errors = this.signupForm.errors;
-    // if (errors && errors['mismatch']) {
-    //   alert('รหัสผ่านไม่ตรงกัน');
-    //   return;
-    // }
-
+    this.isSubmitted = true;
     const dataSend = {
       username: this.signupForm.controls['username'].value,
       password: this.signupForm.controls['password'].value,
@@ -62,9 +53,9 @@ export class SignupComponent {
         this.sendResponseSignup.emit({ status: 200, message: res.message });
       },
       error: (err) => {
-        console.error(err);
+        const message = this.data.displayError(err.error.errors);
 
-        console.log(err.error.errors);
+        this.sendResponseSignup.emit({ status: err.status, message });
       },
     });
   }

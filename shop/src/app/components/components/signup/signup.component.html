@@ -3,8 +3,9 @@
     <div>
         <input formControlName="username" type="text" autocomplete="off" placeholder="Please enter your username"
             class="w-full h-10 border-1 border-[var(--border-img)] p-3 outline-none"
-            [class.error]="signupForm.controls['username'].dirty &&signupForm.controls['username'].hasError('required')">
-        <small *ngIf="signupForm.controls['username'].dirty &&signupForm.controls['username'].hasError('required')"
+            [class.error]="(signupForm.controls['username'].dirty  || isSubmitted)&&signupForm.controls['username'].hasError('required')">
+        <small
+            *ngIf="(signupForm.controls['username'].dirty || isSubmitted) &&signupForm.controls['username'].hasError('required')"
             class="pl-2 text-[var(--text-error)] text-xs">*Please enter your username.</small>
     </div>
     <div>
@@ -12,7 +13,7 @@
 
             <input formControlName="password" type="text" autocomplete="off" placeholder="Please enter your password"
                 (input)="onHidePassword($event)"
-                [class.error]="signupForm.controls['password'].dirty &&signupForm.controls['password'].hasError('required')"
+                [class.error]="(signupForm.controls['password'].dirty || isSubmitted) &&signupForm.controls['password'].hasError('required')"
                 class="w-full h-10 border-1 border-[var(--border-img)] p-3 outline-none">
             <button title="Hide password" type="button" (click)="onIsHidePassword()"
                 class="absolute right-3 top-1/2 transform -translate-y-1/2">
@@ -26,7 +27,8 @@
                 </svg>
             </button>
         </div>
-        <small *ngIf="signupForm.controls['password'].dirty &&signupForm.controls['password'].hasError('required')"
+        <small
+            *ngIf="(signupForm.controls['password'].dirty || isSubmitted) &&signupForm.controls['password'].hasError('required')"
             class="pl-2 text-[var(--text-error)] text-xs">*Please enter your password.</small>
     </div>
     <div>
@@ -34,7 +36,7 @@
             <input formControlName="passwordConfirm" type="text" autocomplete="off"
                 placeholder="Please confirm your password" (input)="onHidePasswordConfirm($event)"
                 class="w-full h-10 border-1 border-[var(--border-img)] p-3 outline-none"
-                [class.error]="signupForm.controls['passwordConfirm'].dirty &&signupForm.controls['passwordConfirm'].hasError('required') 
+                [class.error]="(signupForm.controls['passwordConfirm'].dirty || isSubmitted) &&signupForm.controls['passwordConfirm'].hasError('required') 
             && !this.signupForm.errors?.['mismatch'] || signupForm.controls['passwordConfirm'].dirty && this.signupForm.errors?.['mismatch']">
             <button title=" Hide password" type="button" (click)="onIsHidePasswordConfirm()"
                 class="absolute right-3 top-1/2 transform -translate-y-1/2">
@@ -51,11 +53,12 @@
         </div>
         <!-- ถ้าจะขึ้นให้ป้อนยืนยันรหัสผ่าน ช่องยืนยันรหัสผ่านจะต้องตรงกันกับช่องป้อนรหัสผ่านด้วย 
          ถ้าไม่ตรงกันให้ขึ้นโปรดป้อนรหัสยืนยันให้ตรงรหัสผ่าน-->
-        <small *ngIf="signupForm.controls['passwordConfirm'].dirty &&signupForm.controls['passwordConfirm'].hasError('required') 
+        <small *ngIf="(signupForm.controls['passwordConfirm'].dirty || isSubmitted) &&signupForm.controls['passwordConfirm'].hasError('required') 
             && !this.signupForm.errors?.['mismatch']" class="pl-2 text-[var(--text-error)] text-xs">*Please confirm
             your
             password.</small>
-        <small *ngIf="signupForm.controls['passwordConfirm'].dirty && this.signupForm.errors?.['mismatch']"
+        <small
+            *ngIf="(signupForm.controls['passwordConfirm'].dirty || isSubmitted) && this.signupForm.errors?.['mismatch']"
             class="pl-2 text-[var(--text-error)] text-xs">*Please enter the confirmation code to match the
             password.</small>
     </div>
