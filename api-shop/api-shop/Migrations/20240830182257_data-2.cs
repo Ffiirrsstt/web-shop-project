@@ -5,12 +5,12 @@
 namespace api_shop.Migrations
 {
     /// <inheritdoc />
-    public partial class userver5 : Migration
+    public partial class data2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-               
+
         }
 
         /// <inheritdoc />

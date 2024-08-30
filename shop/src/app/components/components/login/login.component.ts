@@ -5,6 +5,7 @@ import { FormGroupService } from '../../../services/form/form-group.service';
 import { PasswordDisplayService } from '../../../services/form/password-display.service';
 import { DataService } from '../../../services/manage/data.service';
 import { LoginService } from '../../../servicesSwagger/login.service';
+import { TokenService } from '../../../services/auth/token.service';
 
 @Component({
   selector: 'app-login',
@@ -15,17 +16,14 @@ export class LoginComponent {
   @Output() sendResponseLogin = new EventEmitter<resLoginSingup>();
   loginForm!: FormGroup;
 
-  isHidePassword = true;
-  passwordDisplay: string = '';
-
   isSubmitted = false;
 
   constructor(
     private fb: FormBuilder,
     private form: FormGroupService,
-    private pwd: PasswordDisplayService,
     private login: LoginService,
-    private data: DataService
+    private data: DataService,
+    private token: TokenService
   ) {}
 
   ngOnInit(): void {
@@ -44,33 +42,15 @@ export class LoginComponent {
 
     await this.login.apiLogin(dataSend).subscribe({
       next: (res) => {
+        this.token.setStorageToken(res.datas.token);
+        this.token.setStorageRefreshToken(res.datas.refreshToken);
         this.sendResponseLogin.emit({ status: 200, message: res.message });
       },
       error: (err) => {
-        const message = this.data.displayError(err);
+        const message = this.data.displayError(err, true);
 
         this.sendResponseLogin.emit({ status: err.status, message });
       },
     });
-  }
-
-  onHidePassword(event: Event) {
-    this.passwordDisplay = this.pwd.onDisplayPassword(
-      event,
-      this.loginForm,
-      'password',
-      this.isHidePassword,
-      this.passwordDisplay
-    );
-  }
-
-  onIsHidePassword() {
-    this.isHidePassword = !this.isHidePassword;
-    this.pwd.displayPassword(
-      this.loginForm,
-      this.isHidePassword,
-      this.passwordDisplay,
-      'password'
-    );
   }
 }

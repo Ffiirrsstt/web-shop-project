@@ -16,10 +16,11 @@ import { ProductListComponent } from './components/page-main/product-list/produc
 import { NavLoginSignupComponent } from './components/components/nav-login-signup/nav-login-signup.component';
 import { SignupComponent } from './components/components/signup/signup.component';
 import { LoginSignupComponent } from './components/page-main/login-signup/login-signup.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AlertOkComponent } from './components/components/alert/alert-ok/alert-ok.component';
 import { AlertErrorComponent } from './components/components/alert/alert-error/alert-error.component';
 import { AlertComponent } from './components/components/alert/alert/alert.component';
+import { authInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,13 @@ import { AlertComponent } from './components/components/alert/alert/alert.compon
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: authInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

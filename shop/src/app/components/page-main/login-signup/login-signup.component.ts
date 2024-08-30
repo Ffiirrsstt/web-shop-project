@@ -48,7 +48,6 @@ export class LoginSignupComponent {
   }
 
   async receiveResponseLoginSignup(data: resLoginSingup) {
-    console.log(data);
     this.progressbar.alertOKError(data);
 
     // this.router.navigate(['/page-message'], {

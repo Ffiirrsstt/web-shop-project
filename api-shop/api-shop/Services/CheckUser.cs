@@ -11,8 +11,13 @@ namespace API.Services
       _users = users;
     }
 
-    public Task<Users> checkUser(string username,string password) => 
-            _users.Users.FirstOrDefaultAsync(data => data.Username == username && data.Password == password);
+    public async Task<Users> checkUser(string username,string password) => 
+            await _users.Users.FirstOrDefaultAsync(data => data.Username == username && data.Password == password);
+        
+    public async Task<bool> checkUsernameBool(string username) => 
+            await _users.Users.AnyAsync(data => data.Username == username);
+
+
 
   }
 }

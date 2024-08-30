@@ -28,6 +28,8 @@ namespace API.Model
     [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
     public string Email { get; set; }*/
     public string Token { get; set; } = string.Empty;
+    public string RefreshToken { get; set; } = string.Empty;
+    public DateTime TokenExpiryTime { get; set; }
     /*[AllowedValues("USER","ADMIN")]
     public string Role { get; set; } = "USER";*/
   }

@@ -1,5 +1,7 @@
 ﻿using API.Context;
 using API.Model;
+using API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +14,8 @@ namespace api_shop.Controllers
         private readonly UsersDbContext _users;
         public SignupController(UsersDbContext users) { _users = users; }
 
+        //[Authorize]
+
         [HttpPost("signup")]
         public async Task<IActionResult> Signup([FromBody] Users user)
         {
@@ -20,6 +24,15 @@ namespace api_shop.Controllers
 
             if (ModelState.IsValid)
             {
+                CheckUser check = new CheckUser(_users);
+                var registered = await check.checkUsernameBool(user.Username);
+                if(registered)
+                    return ApiResponseController.ApiResponseBadRequest(
+                        errors: new
+                        {
+                            Message = new[] { "username is already in use." }
+                        });
+
                 await _users.Users.AddAsync(user);
                 await _users.SaveChangesAsync();
                 return ApiResponseController.ApiResponseOk("Sign-up successfully completed.");

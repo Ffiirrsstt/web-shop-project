@@ -3,6 +3,7 @@ using API.Model;
 using API.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace api_shop.Controllers
 {
@@ -11,10 +12,12 @@ namespace api_shop.Controllers
     public class LoginController : ControllerBase
     {
         private readonly UsersDbContext _users;
+        private readonly IConfiguration _configuration;
 
-        public LoginController(UsersDbContext users)
+        public LoginController(UsersDbContext users, IConfiguration configuration)
         {
             _users = users;
+            _configuration = configuration;
         }
 
         [HttpPost("login")]
@@ -24,19 +27,29 @@ namespace api_shop.Controllers
                 return ApiResponseController.ApiResponseInvalidReceived();
 
             CheckUser check = new CheckUser(_users);
-            var resultLogin = await check.checkUser(user.Username,user.Password);
-            if (resultLogin == null) return NotFound(new { Message = "- Username or password is incorrect." });
+            var userLogin = await check.checkUser(user.Username,user.Password);
 
-            //user.Token = Token.CreateToken(result);
+            if (userLogin == null) return ApiResponseController.ApiResponseNotFound(new { Message = "- Username or password is incorrect." });
 
-            return Ok(new
-            {
-                /*token = user.Token,
-                id = user.Id,
-                email = user.Username,
-                role = user.Role,*/
-                Message = "Log-in successfully completed."
-            });
+            Token token = new Token(_users,_configuration);
+            userLogin.Token = token.CreateToken(userLogin);
+            userLogin.RefreshToken = await token.CreateRefreshToken();
+            userLogin.TokenExpiryTime = DateTime.Now.AddDays(1);
+
+            _users.Users.Update(userLogin);
+            await _users.SaveChangesAsync();
+
+            return ApiResponseController.ApiResponseOk("Log-in successfully completed.", 
+                new {
+                        /*
+                        email = user.Username,
+                        role = user.Role,
+                        id = userLogin.Id,
+                        */
+                        token = userLogin.Token,
+                        refreshToken = userLogin.RefreshToken,
+                    }
+                );
         }
     }
 }
