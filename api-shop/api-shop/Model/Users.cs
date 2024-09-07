@@ -27,6 +27,9 @@ namespace API.Model
     [Required(ErrorMessage = "Please enter your email address.")]
     [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
     public string Email { get; set; }*/
+
+    //เก็บเป็น json string
+    public string CartDetail { get; set; } = string.Empty;
     public string Token { get; set; } = string.Empty;
     public string RefreshToken { get; set; } = string.Empty;
     public DateTime TokenExpiryTime { get; set; }

@@ -13,3 +13,6 @@
         </div>
     </div>
 </div>
+
+<app-alert *ngIf="messageAlert" [messageAlert]="messageAlert" [progressbar]="progress" [color]="colorAlert"
+    [title]="titleAlert" (sendMessageAlert)="receiveMessageAlert($event)"></app-alert>

@@ -21,6 +21,7 @@ import { AlertOkComponent } from './components/components/alert/alert-ok/alert-o
 import { AlertErrorComponent } from './components/components/alert/alert-error/alert-error.component';
 import { AlertComponent } from './components/components/alert/alert/alert.component';
 import { authInterceptor } from './interceptors/auth.interceptor';
+import { NavCartComponent } from './components/components/nav-cart/nav-cart.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { authInterceptor } from './interceptors/auth.interceptor';
     AlertOkComponent,
     AlertErrorComponent,
     AlertComponent,
+    NavCartComponent,
   ],
   imports: [
     BrowserModule,

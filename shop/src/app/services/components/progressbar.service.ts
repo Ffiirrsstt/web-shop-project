@@ -15,22 +15,37 @@ export class ProgressbarService {
   private messageAlertSubject = new BehaviorSubject<string>('');
   messageAlert$ = this.messageAlertSubject.asObservable();
 
-  private colorSubject = new BehaviorSubject<string>('');
-  color$ = this.colorSubject.asObservable();
+  private colorAlertSubject = new BehaviorSubject<string>('');
+  colorAlert$ = this.colorAlertSubject.asObservable();
+
+  private titleAlertSubject = new BehaviorSubject<string>('');
+  titleAlert$ = this.titleAlertSubject.asObservable();
 
   progressInterval!: any;
   alertTimeout: any;
 
-  //ไว้บน ๆ ให้แก้ไขง่าย ๆ น่ะ
+  //เขียนแยกไว้ให้แก้ไขง่าย ๆ (เฉพาะในการแก้ไขพวกที่ขึ้นแสดงผลน่ะ)
   colorOk = 'var(--alert-ok)';
+  titleTextOk = 'Success';
   colorError = 'var(--alert-error)';
+  titleTextError = 'Error';
 
   constructor() {}
 
-  alertOKError(data: resLoginSingup) {
-    if (data?.status === 200) this.colorSubject.next(this.colorOk);
-    else this.colorSubject.next(this.colorError);
+  closeAlert() {
+    this.messageAlertSubject.next('');
+  }
 
+  alertOKError(data: resLoginSingup) {
+    if (data?.status === 200) {
+      this.titleAlertSubject.next(this.titleTextOk);
+      this.colorAlertSubject.next(this.colorOk);
+    } else {
+      this.titleAlertSubject.next(this.titleTextError);
+      this.colorAlertSubject.next(this.colorError);
+    }
+
+    //ข้อความที่จะขึ้นแสดงผล (content)
     this.messageAlertSubject.next(data.message);
     this.alert(this.messageAlertSubject);
   }

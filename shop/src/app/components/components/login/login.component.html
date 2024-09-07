@@ -1,11 +1,11 @@
-<form [formGroup]="loginForm" (ngSubmit)="onsubmitSignup()" class="space-y-6 text-base text-[var(--text-main-dark)]"
+<form [formGroup]="loginForm" (ngSubmit)="onsubmitLogin()" class="space-y-6 text-base text-[var(--text-main-dark)]"
     autocomplete="off">
     <div>
         <input formControlName="username" type="text" autocomplete="off" placeholder="Please enter your username"
             class="w-full h-10 border-1 border-[var(--border-img)] p-3 outline-none"
-            [class.error]="(loginForm.controls['username'].dirty  || isSubmitted)&&loginForm.controls['username'].hasError('required')">
+            [class.error]="(loginForm.controls['username'].dirty  || isLogin)&&loginForm.controls['username'].hasError('required')">
         <small
-            *ngIf="(loginForm.controls['username'].dirty || isSubmitted) &&loginForm.controls['username'].hasError('required')"
+            *ngIf="(loginForm.controls['username'].dirty || isLogin) &&loginForm.controls['username'].hasError('required')"
             class="pl-2 text-[var(--text-error)] text-xs">*Please enter your username.</small>
     </div>
     <div>
@@ -13,11 +13,11 @@
 
             <input formControlName="password" type="password" autocomplete="new-password"
                 placeholder="Please enter your password"
-                [class.error]="(loginForm.controls['password'].dirty || isSubmitted) &&loginForm.controls['password'].hasError('required')"
+                [class.error]="(loginForm.controls['password'].dirty || isLogin) &&loginForm.controls['password'].hasError('required')"
                 class="w-full h-10 border-1 border-[var(--border-img)] p-3 outline-none">
         </div>
         <small
-            *ngIf="(loginForm.controls['password'].dirty || isSubmitted) &&loginForm.controls['password'].hasError('required')"
+            *ngIf="(loginForm.controls['password'].dirty || isLogin) &&loginForm.controls['password'].hasError('required')"
             class="pl-2 text-[var(--text-error)] text-xs">*Please enter your password.</small>
     </div>
     <button type="submit" class="w-full h-10 

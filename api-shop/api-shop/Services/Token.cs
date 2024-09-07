@@ -35,7 +35,7 @@ namespace API.Services
             new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
             new Claim("Id",user.Id.ToString()),
             new Claim("Username",user.Username),
-            new Claim("Password",user.Password),
+            //new Claim("Password",user.Password),
             //new Claim("FirstName",user.FirstName),
             //new Claim("LastName",user.LastName),
             //new Claim(ClaimTypes.Role,user.Role)

@@ -14,7 +14,8 @@ export class LoginSignupComponent {
   isSignupPage!: boolean;
 
   messageAlert = '';
-  color = '';
+  colorAlert!: string;
+  titleAlert!: string;
   progress = 0;
 
   constructor(
@@ -26,19 +27,6 @@ export class LoginSignupComponent {
     this.checkCurrentPage();
 
     this.useTogether();
-  }
-
-  // Subscribe เพื่อรับค่าแบบเรียลไทม์ (จาก services)
-  useTogether() {
-    this.progressbar.progress$.subscribe((progressbar) => {
-      this.progress = progressbar;
-    });
-    this.progressbar.messageAlert$.subscribe((message) => {
-      this.messageAlert = message;
-    });
-    this.progressbar.color$.subscribe((color) => {
-      this.color = color;
-    });
   }
 
   //เช็กว่า path ว่าเป็น login หรือ signup
@@ -57,5 +45,21 @@ export class LoginSignupComponent {
 
   receiveMessageAlert(message: string) {
     this.messageAlert = message;
+  }
+
+  // Subscribe เพื่อรับค่าแบบเรียลไทม์ (จาก services)
+  useTogether() {
+    this.progressbar.progress$.subscribe((progressbar) => {
+      this.progress = progressbar;
+    });
+    this.progressbar.messageAlert$.subscribe((message) => {
+      this.messageAlert = message;
+    });
+    this.progressbar.colorAlert$.subscribe((color) => {
+      this.colorAlert = color;
+    });
+    this.progressbar.titleAlert$.subscribe((text) => {
+      this.titleAlert = text;
+    });
   }
 }

@@ -15,7 +15,7 @@ ml-3 xxs:w-56 base:w-[500px] min-h-[120px]">
                         d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                 </svg>
             </div>
-            <h2 class="font-bold text-sm base:text-lg" [ngStyle]="{'color': color}">There is an error!</h2>
+            <h2 class="font-bold text-sm base:text-lg" [ngStyle]="{'color': color}">{{title}}</h2>
         </div>
         <h3 class="xxs:pl-10 flex-1 text-[var(--text-main-dark:)] text-xs base:text-base"
             [style.white-space]="'pre-line'" [innerHTML]="messageAlert"></h3>

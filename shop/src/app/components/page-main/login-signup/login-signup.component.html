@@ -51,8 +51,10 @@
         </div>
     </div>
 
-    <app-alert *ngIf="messageAlert" [messageAlert]="messageAlert" [progressbar]="progress" [color]="color"
-        (sendMessageAlert)="receiveMessageAlert($event)"></app-alert>
+    <app-alert *ngIf="messageAlert" [messageAlert]="messageAlert" [color]="colorAlert" [title]="titleAlert"
+        [progressbar]="progress" (sendMessageAlert)="receiveMessageAlert($event)"></app-alert>
+
+
     <!-- เอาไว้ตอนอยากแก้ไขหน้าตาของ alert น่ะ -->
     <!-- <app-alert [messageAlert]="messageAlert" [progressbar]="progress" [color]="color"
         (sendMessageAlert)="receiveMessageAlert($event)"></app-alert> -->

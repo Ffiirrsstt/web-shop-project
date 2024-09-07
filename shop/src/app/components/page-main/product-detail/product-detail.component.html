@@ -7,7 +7,7 @@
         <div class="flex flex-col items-center xxs:items-start space-y-8">
             <h2 class="text-2xl font-semibold text-[var(--text-main-dark)]">{{productData.title}}</h2>
             <div class="text-[var(--text-secondary-dark)] space-y-4">
-                <h3 class="text-2xl font-semibold">฿{{productData.price}}</h3>
+                <h3 class="text-2xl font-semibold">฿{{priceDisplay}}</h3>
                 <div class="space-y-3  xxs:space-y-0 sm:space-y-3 base:space-y-0">
                     <!-- จำนวนสินค้าที่ต้องการซื้อ -->
                     <div class="flex flex-col xxs:flex-row sm:flex-col base:flex-row 
@@ -36,7 +36,8 @@
                 <button class="
                                 bg-[var(--btn-secondary)] hover:bg-[var(--btn-secondary-hover)]  text-[var(--btn-text)]
                                 transition-all duration-100 rounded-md
-                                 w-32 xxs:w-24 xs:w-36 sm:w-24 base:w-32 md:w-48 lg:w-60 h-12">Add Yo Cart</button>
+                                 w-32 xxs:w-24 xs:w-36 sm:w-24 base:w-32 md:w-48 lg:w-60 h-12" (click)="addCart()">Add
+                    You Cart</button>
                 <button class="
                                 bg-[var(--btn-main)] hover:bg-[var(--btn-main-hover)]  text-[var(--btn-text)]
                                 transition-all duration-100 rounded-md
