@@ -1,9 +1,14 @@
 <!-- pb-[80px] ไม่ให้ตรงที่มันแสดงชำระเงินบังน่ะ -->
 <div class="w-full space-y-6 xxs:px-4 md:py-4 pb-[80px]">
-    <div *ngFor=" let product of cartList;let idx  =index" class="flex w-full text-base cursor-pointer 
+    <div *ngFor=" let product of cartList;let idx = index" class="h-52 flex w-full text-base cursor-pointer 
     shadow-md rounded-lg p-5 space-x-5">
+        <!-- เลือกมั้ย (หมายถึงเลือกจะซื้อมั้ย) -->
+        <div class="h-full flex items-center justify-center">
+            <input type="checkbox" title="Click to select items for payment" id="selectProductPay" class="w-6 h-6 ">
+        </div>
+
         <img src="{{product.ImgCover}}" alt="{{product.Title}}" title="{{product.Title}}"
-            class="xxs:w-52 h-52 rounded-md bg-[var(--bg-img)]">
+            class="xxs:w-52 rounded-md bg-[var(--bg-img)]">
         <div class="flex flex-col justify-between w-full">
             <h4 class="text-xl">{{ product.Title }}</h4>
             <div class="flex w-full justify-between pb-6">

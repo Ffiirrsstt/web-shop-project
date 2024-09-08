@@ -76,6 +76,8 @@ namespace api_shop.Controllers
             public decimal Price { get; set; }
             public int Inventory { get; set; }
             public int Quantity { get; set; }
+            //ถ้าเป็น true คือใส่ลงตะกร้าแล้ว และเลือกเตรียมจะจ่ายเงินในหน้า checkout
+            public Boolean Select { get; set; }
         }
     }
 }

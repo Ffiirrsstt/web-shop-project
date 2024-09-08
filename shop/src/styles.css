@@ -37,6 +37,7 @@
 
   --border-img: rgba(167, 162, 169, 0.4);
   --border-alert: var(--bg-block-dark);
+  --border-checkbox: var(--text-secondary-dark);
 
   /* alert */
   --alert-ok: green;

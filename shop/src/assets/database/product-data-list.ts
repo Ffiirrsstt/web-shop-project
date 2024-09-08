@@ -19,6 +19,7 @@ export const productDataList: ProductType[] = [
     Price: 186,
     Inventory: 25,
     Quantity: 0,
+    Select: false,
   },
   {
     Id: 2,
@@ -28,6 +29,7 @@ export const productDataList: ProductType[] = [
     Price: 199,
     Inventory: 1,
     Quantity: 0,
+    Select: false,
   },
   {
     Id: 3,
@@ -37,6 +39,7 @@ export const productDataList: ProductType[] = [
     Price: 129,
     Inventory: 6,
     Quantity: 0,
+    Select: false,
   },
   {
     Id: 4,
@@ -46,6 +49,7 @@ export const productDataList: ProductType[] = [
     Price: 56,
     Inventory: 1,
     Quantity: 0,
+    Select: false,
   },
   {
     Id: 5,
@@ -55,6 +59,7 @@ export const productDataList: ProductType[] = [
     Price: 199,
     Inventory: 51,
     Quantity: 0,
+    Select: false,
   },
   {
     Id: 6,
@@ -64,6 +69,7 @@ export const productDataList: ProductType[] = [
     Price: 186,
     Inventory: 9,
     Quantity: 0,
+    Select: false,
   },
   {
     Id: 7,
@@ -73,6 +79,7 @@ export const productDataList: ProductType[] = [
     Price: 199,
     Inventory: 7,
     Quantity: 0,
+    Select: false,
   },
   {
     Id: 8,
@@ -82,6 +89,7 @@ export const productDataList: ProductType[] = [
     Price: 129,
     Inventory: 8,
     Quantity: 0,
+    Select: false,
   },
   {
     Id: 9,
@@ -91,6 +99,7 @@ export const productDataList: ProductType[] = [
     Price: 56,
     Inventory: 6,
     Quantity: 0,
+    Select: false,
   },
   {
     Id: 10,
@@ -100,5 +109,6 @@ export const productDataList: ProductType[] = [
     Price: 199,
     Inventory: 55,
     Quantity: 0,
+    Select: false,
   },
 ];

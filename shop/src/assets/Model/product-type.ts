@@ -6,4 +6,5 @@ export interface ProductType {
   Price: number;
   Inventory: number;
   Quantity: number;
+  Select: boolean;
 }
