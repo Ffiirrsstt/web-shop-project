@@ -22,6 +22,10 @@ import { AlertErrorComponent } from './components/components/alert/alert-error/a
 import { AlertComponent } from './components/components/alert/alert/alert.component';
 import { authInterceptor } from './interceptors/auth.interceptor';
 import { NavCartComponent } from './components/components/nav-cart/nav-cart.component';
+import { CartComponent } from './components/page-main/cart/cart.component';
+import { CartListComponent } from './components/components/cart-list/cart-list.component';
+import { CartPaymentComponent } from './components/components/cart-payment/cart-payment.component';
+import { CheckoutComponent } from './components/page-main/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,10 @@ import { NavCartComponent } from './components/components/nav-cart/nav-cart.comp
     AlertErrorComponent,
     AlertComponent,
     NavCartComponent,
+    CartComponent,
+    CartListComponent,
+    CartPaymentComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

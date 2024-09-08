@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Azure.Core;
+using api_shop.Services;
+using Microsoft.AspNetCore.Authorization;
+using System.ComponentModel.DataAnnotations;
 
 namespace api_shop.Controllers
 {
@@ -20,6 +23,7 @@ namespace api_shop.Controllers
             _users = users;
         }
 
+        [Authorize]
         [HttpGet("getCart")]
         public async Task<IActionResult> Signin(int id,string username)
         {
@@ -39,6 +43,7 @@ namespace api_shop.Controllers
             );
         }
 
+        [Authorize]
         [HttpPatch("updateCart")]
         public async Task<IActionResult> UpdateCart([FromBody] Users user)
         {
@@ -51,39 +56,20 @@ namespace api_shop.Controllers
             if (userUpdateCart == null) 
                 return ApiResponseController.ApiResponseNotFound(new { Message = "Account not found for updating the shopping cart."
                 });
-            Console.WriteLine("start");
-            Console.WriteLine("");
 
-            // แปลง JSON string เป็น object
-            var newCartItem = JsonConvert.DeserializeObject<CartItem>(user.CartDetail);
+            CartManage cart = new CartManage(_users);
 
-            // ถ้า userUpdateCart.CartDetail ไม่ว่าง แปลงเป็น List<CartItem> ถ้าว่างก็สร้าง new List<CartItem>()ขึ้นมา
-            List<CartItem> cartItems = !string.IsNullOrEmpty(userUpdateCart.CartDetail)
-                ? JsonConvert.DeserializeObject<List<CartItem>>(userUpdateCart.CartDetail)
-                : new List<CartItem>();
-
-            // เพิ่มข้อมูลใหม่เข้าไป
-            cartItems.Add(newCartItem);
-
-            // แปลงกลับเป็น JSON string เพื่อบันทืกข้อมูล
-            userUpdateCart.CartDetail = JsonConvert.SerializeObject(cartItems);
-
-
-            // อัปเดตข้อมูลในฐานข้อมูล
-            _users.Users.Update(userUpdateCart);
-            await _users.SaveChangesAsync();
-
-            //ข้อมูลที่มี id และ username ตามที่กำหนด (ข้อมูลชุดที่จะอัปเดต cart) = ข้อมูลตะกร้าที่จะอัปเดต
-            /*userUpdateCart.CartDetail = user.CartDetail;
-            _users.Users.Update(userUpdateCart);
-            await _users.SaveChangesAsync();*/
+            await cart.cartAddingChanging(user, userUpdateCart);
 
             return ApiResponseController.ApiResponseOk("Shopping cart updated successfully.");
         }
 
+
+
         public class CartItem
         {
-            public string Id { get; set; }
+            [Key]
+            public int Id { get; set; }
             public string Title { get; set; }
             public string ImgCover { get; set; }
             public List<string> AllImg { get; set; }

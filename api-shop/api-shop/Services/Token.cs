@@ -45,11 +45,12 @@ namespace API.Services
             var tokenDesciptor = new SecurityTokenDescriptor
             {
                 Subject = identity,
-                Expires = DateTime.Now.AddSeconds(10),
+                Expires = DateTime.Now.AddHours(1),
                 SigningCredentials = credentials
             };
             //AddSeconds(10)
             //AddDays(1)
+            //.AddHours(1);
 
             var token = jwtTokenHandler.CreateToken(tokenDesciptor);
             // แปลงเป็น JWT string

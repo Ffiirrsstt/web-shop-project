@@ -32,4 +32,8 @@ export class DataService {
 
     return message;
   }
+
+  sumArray(array: Array<number>) {
+    return array.reduce((sum, current) => sum + current, 0);
+  }
 }

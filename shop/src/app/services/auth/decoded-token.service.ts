@@ -6,11 +6,7 @@ import { TokenService } from './token.service';
   providedIn: 'root',
 })
 export class DecodedTokenService {
-  private dataPayload: any;
-
-  constructor(private token: TokenService) {
-    this.dataPayload = this.decodedToken();
-  }
+  constructor(private token: TokenService) {}
 
   //ถอดรหัส token เพื่อรับข้อมูลที่ต้องการ
   decodedToken = () => {
@@ -19,11 +15,14 @@ export class DecodedTokenService {
     if (token) return jwtHelper.decodeToken(token);
   };
 
-  getUsername() {
-    if (this.dataPayload) return this.dataPayload.Username;
+  getId() {
+    //เคยเขียนไว้ที่ constructor แล้ว บางที dataPayload จะเป็น undefind
+    const dataPayload = this.decodedToken();
+    if (dataPayload) return dataPayload.Id;
   }
 
-  getId() {
-    if (this.dataPayload) return this.dataPayload.Id;
+  getUsername() {
+    const dataPayload = this.decodedToken();
+    if (dataPayload) return dataPayload.Username;
   }
 }

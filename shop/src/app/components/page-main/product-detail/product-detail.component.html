@@ -5,9 +5,10 @@
         <!-- สไลด์แสดงผลรูปภาพสินค้า -->
         <app-display-slide-img [product]="productData"></app-display-slide-img>
         <div class="flex flex-col items-center xxs:items-start space-y-8">
-            <h2 class="text-2xl font-semibold text-[var(--text-main-dark)]">{{productData.title}}</h2>
+            <h2 class="text-2xl font-semibold text-[var(--text-main-dark)]">{{productData.Title}}</h2>
             <div class="text-[var(--text-secondary-dark)] space-y-4">
-                <h3 class="text-2xl font-semibold">฿{{priceDisplay}}</h3>
+                <h3 *ngIf="priceDisplay" class="text-2xl font-semibold">
+                    ฿{{priceDisplay.toLocaleString()}}</h3>
                 <div class="space-y-3  xxs:space-y-0 sm:space-y-3 base:space-y-0">
                     <!-- จำนวนสินค้าที่ต้องการซื้อ -->
                     <div class="flex flex-col xxs:flex-row sm:flex-col base:flex-row 
@@ -15,8 +16,10 @@
                         <h4 class="w-36">
                             Quantity
                         </h4>
-                        <app-display-number-increment-decrement [inventory]="productData.inventory"
-                            (sendProductAmount)="receiveProductAmount($event)"></app-display-number-increment-decrement>
+                        <app-display-number-increment-decrement
+                            [productQuantity]="productData.Quantity===0?1:productData.Quantity"
+                            [inventory]="productData.Inventory"
+                            (sendProductQuantity)="receiveProductQuantity($event)"></app-display-number-increment-decrement>
                     </div>
                     <!-- สินค้าคงคลัง -->
                     <div class="flex items-center space-x-3 text-xs">
@@ -24,7 +27,7 @@
                             Inventory :
                         </h4>
                         <h5>
-                            ฿{{productData.inventory}}
+                            ฿{{productData.Inventory}}
                         </h5>
                     </div>
                 </div>

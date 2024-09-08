@@ -16,14 +16,14 @@ export class ReadTokenService {
   readUsername() {
     return this.userStore.getUsername().pipe(
       // ใช้ map เพื่อตรวจสอบและคืนค่าที่เหมาะสม
-      map((value: string) => value || this.decodedTk.getUsername())
+      map((value: string) => this.decodedTk.getUsername())
     );
   }
 
   readId() {
     return this.userStore
       .getId()
-      .pipe(map((value: string) => value || this.decodedTk.getId()));
+      .pipe(map((value: number) => this.decodedTk.getId()));
   }
 
   readIdUsername() {

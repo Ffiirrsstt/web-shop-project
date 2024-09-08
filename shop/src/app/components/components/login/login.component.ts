@@ -56,7 +56,6 @@ export class LoginComponent {
         if (decodedToken) {
           this.userStore.setUsername(decodedToken.Username);
           this.userStore.setUsername(decodedToken.Id);
-          this.cartCal.settingQuantityItemsCart();
           // this.userStore.setRole(decodedToken.role);
           // this.userStore.setGoogleAccount(decodedToken.unique_name);
           // this.userStore.setEmailContact(decodedToken.email);

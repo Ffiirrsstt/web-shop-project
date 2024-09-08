@@ -1,4 +1,4 @@
-<img src="{{imgBigDisplay}}" alt="{{product.title}}" title="{{product.title}}"
+<img src="{{imgBigDisplay}}" alt="{{product.Title}}" title="{{product.Title}}"
     class="w-36 h-36 xxs:w-52 xxs:h-52 xs:w-80 xs:h-80 rounded-md p-2 border-b-2">
 
 <div class="w-36 xxs:w-52 xs:w-80 h-24 overflow-hidden flex items-center">
@@ -13,8 +13,8 @@
 
     <!-- รูปภาพที่ให้เลือกมาแสดงเป็นภาพใหญ่ -->
     <div #slider id="slider" class="flex overflow-x-hidden scroll-smooth space-x-2">
-        <div *ngFor="let item of product.allImg" class="flex-shrink-0 w-16 h-16">
-            <img src="{{item}}" alt="{{product.title}}" class="w-full h-full rounded-md shadow-md border-1 cursor-pointer
+        <div *ngFor="let item of product.AllImg" class="flex-shrink-0 w-16 h-16">
+            <img src="{{item}}" alt="{{product.Title}}" class="w-full h-full rounded-md shadow-md border-1 cursor-pointer
                 border-[var(--border-img)]" (click)="changeDisplayImgBig(item)">
         </div>
     </div>

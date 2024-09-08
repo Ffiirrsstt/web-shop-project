@@ -5,6 +5,7 @@ import { productDataList } from '../../../../assets/database/product-data-list';
 import { ReadTokenService } from '../../../services/auth/read-token.service';
 import { forkJoin, lastValueFrom, map, tap } from 'rxjs';
 import { CartService } from '../../../servicesSwagger/cart.service';
+import { CartDataService } from '../../../services/manage/cart-data.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,7 +14,7 @@ import { CartService } from '../../../servicesSwagger/cart.service';
 })
 export class ProductDetailComponent {
   productData!: ProductType;
-  productAmount = 1;
+  productQuantity = 1;
 
   //ราคาที่คำนวณกับจำนวนสินค้าแล้ว
   priceDisplay!: number;
@@ -21,7 +22,8 @@ export class ProductDetailComponent {
   constructor(
     private route: ActivatedRoute,
     private readTk: ReadTokenService,
-    private cart: CartService
+    private cart: CartService,
+    private cartCal: CartDataService
   ) {}
 
   ngOnInit(): void {
@@ -38,13 +40,13 @@ export class ProductDetailComponent {
         return;
       }
 
-      this.getProductDetail(productId);
+      this.getProductDetail(Number(productId));
     });
   }
 
-  getProductDetail(productId: string) {
+  getProductDetail(productId: number) {
     // ค้นหาข้อมูลสินค้าจากรายการ
-    const data = productDataList.find((product) => product.id === productId);
+    const data = productDataList.find((product) => product.Id === productId);
 
     if (!data) {
       //น่าจะเด้งไปหน้า404
@@ -53,50 +55,30 @@ export class ProductDetailComponent {
     }
 
     this.productData = data;
-    this.calculatePrice();
+    this.calDisplayPrice();
 
     // หรือหากใช้ API, คุณสามารถเรียก API ที่นี่
     // this.productService.getProductById(id).subscribe(product => this.product = product);
   }
 
-  calculatePrice() {
-    this.priceDisplay = this.productData.price * this.productAmount;
-  }
-
   addCart() {
     //ไม่ส่งว่าต้องชำระเท่าไหร่ ให้ไปคำนวณใน cart เอา เพาะเผื่อมีการเปลี่ยนแปลงราคาสินค้า
-    const dataCart = { ...this.productData, quantity: this.productAmount };
-    const dataCartJson = JSON.stringify(dataCart);
-
-    this.readTk.readIdUsername().subscribe(([id, username]) => {
-      //ข้อมูลที่จะใช้ส่งให้ api
-      const dataSend = {
-        Id: id,
-        Username: username,
-        //แค่ไม่ให้มัน error ที่ว่าง เพราะกำหนดเอาไว้เป็น Req
-        //(หมายเหตุ : Password และ PasswordConfirm กำหนเไว้เฉย ๆ อะไรก็ได้ แต่ต้องกำหนดและกำหนดเหมือนกัน)
-        Password: 'passward',
-        PasswordConfirm: 'passward',
-        CartDetail: dataCartJson,
-      };
-
-      console.log(dataCartJson);
-
-      this.cart.apiUpdateCart(dataSend).subscribe({
-        next: (response) => {
-          // จัดการกับข้อมูลที่ได้รับจากการตอบกลับ
-          console.log('Success:', response);
-        },
-        error: (error) => {
-          // จัดการกับข้อผิดพลาด
-          console.error('Error:', error);
-        },
-      });
-    });
+    this.cartCal.updateCart(this.productData, this.productQuantity);
   }
 
-  receiveProductAmount(amount: number) {
-    this.productAmount = amount;
-    this.calculatePrice();
+  receiveProductQuantity(event: {
+    // productId: number;
+    productQuantity: number;
+  }) {
+    const { productQuantity } = event;
+    this.productQuantity = productQuantity;
+    this.calDisplayPrice();
+  }
+
+  calDisplayPrice() {
+    this.priceDisplay = this.cartCal.calculatePrice(
+      this.productData.Price,
+      this.productQuantity
+    );
   }
 }

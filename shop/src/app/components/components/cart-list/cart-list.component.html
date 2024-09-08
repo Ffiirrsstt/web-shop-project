@@ -1,0 +1,23 @@
+<!-- pb-[80px] ไม่ให้ตรงที่มันแสดงชำระเงินบังน่ะ -->
+<div class="w-full space-y-6 xxs:px-4 md:py-4 pb-[80px]">
+    <div *ngFor=" let product of cartList;let idx  =index" class="flex w-full text-base cursor-pointer 
+    shadow-md rounded-lg p-5 space-x-5">
+        <img src="{{product.ImgCover}}" alt="{{product.Title}}" title="{{product.Title}}"
+            class="xxs:w-52 h-52 rounded-md bg-[var(--bg-img)]">
+        <div class="flex flex-col justify-between w-full">
+            <h4 class="text-xl">{{ product.Title }}</h4>
+            <div class="flex w-full justify-between pb-6">
+                <h4 *ngIf="productDisplayPriceQuantity[idx].PriceDisplay"
+                    class="text-lg text-[var(--text-price)] font-semibold">
+                    ฿{{ productDisplayPriceQuantity[idx].PriceDisplay.toLocaleString() }}</h4>
+                <div class="space-y-3">
+                    <app-display-number-increment-decrement [index]="idx" [productQuantity]="product.Quantity"
+                        [inventory]="product.Inventory"
+                        (sendProductQuantity)="receiveProductQuantity($event)"></app-display-number-increment-decrement>
+                    <h6 class="text-xs text-right text-[var(--text-secondary-dark)]">Inventory :
+                        ฿{{product.Inventory}}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
