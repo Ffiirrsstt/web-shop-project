@@ -1,0 +1,21 @@
+<!-- ไว้แทนที่(ด้านล่างมัน fixed) ถ้าไม่มีแทนที่ ตัวด้านล่างมันจะลอยบังเนื้อหาอื่น ๆ -->
+<div class="w-full h-16">
+</div>
+
+<div class="fixed flex w-full h-16 z-50 text-lg bottom-0
+ bg-[var(--bg-nav)]">
+    <div class="flex flex-1 space-x-3 h-full justify-center items-center rounded-r-lg">
+        <h3>Total</h3>
+        <h2 *ngIf="pricePay" class="text-[var(--text-price)] font-bold">฿{{pricePay}}</h2>
+    </div>
+    <!-- ถ้า quantityPay === 0 ไม่สามารถกดลิงก์ไป -->
+    <button [ngClass]="{
+        'bg-[var(--btn-disabled)]' : quantityPay === '0',
+        'bg-[var(--btn-main)] hover:bg-[var(--btn-main-hover)]': quantityPay !== '0'}" class="
+    text-[var(--btn-text)] font-medium text-xl
+    transition-all duration-100 px-8 h-full min-w-max" (click)="ToCheckout()" [disabled]="quantityPay==='0'">
+        <h5>
+            Pay ({{quantityPay}})
+        </h5>
+    </button>
+</div>

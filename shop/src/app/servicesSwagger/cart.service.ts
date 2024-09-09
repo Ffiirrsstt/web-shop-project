@@ -105,24 +105,28 @@ export class CartService {
   public apiCartGet(
     id: number,
     username: string,
+    selectDefault: boolean,
     observe?: 'body',
     reportProgress?: boolean
   ): Observable<any>;
   public apiCartGet(
     id: number,
     username: string,
+    selectDefault: boolean,
     observe?: 'response',
     reportProgress?: boolean
   ): Observable<HttpResponse<any>>;
   public apiCartGet(
     id: number,
     username: string,
+    selectDefault: boolean,
     observe?: 'events',
     reportProgress?: boolean
   ): Observable<HttpEvent<any>>;
   public apiCartGet(
     id: number,
     username: string,
+    selectDefault: boolean,
     observe: any = 'body',
     reportProgress: boolean = false
   ): Observable<any> {
@@ -134,6 +138,9 @@ export class CartService {
     ) {
       throw new Error('An id or username is required to use the apiCartGet.');
     }
+
+    if (selectDefault === null || selectDefault === undefined)
+      selectDefault = false;
 
     let headers = this.defaultHeaders;
 
@@ -151,7 +158,7 @@ export class CartService {
     return this.httpClient.get(
       `${this.basePath}/Cart/getCart?id=${id}&username=${encodeURIComponent(
         username
-      )}`,
+      )}&selectDefault=${selectDefault}`,
       {
         responseType: 'json',
         withCredentials: this.configuration.withCredentials,

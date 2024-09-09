@@ -36,4 +36,9 @@ export class DataService {
   sumArray(array: Array<number>) {
     return array.reduce((sum, current) => sum + current, 0);
   }
+
+  // เช่นสร้าง [false,false] : fillArray อากิวเมนแรก จำนวนสมาชิกที่ต้องการ , อากิวเมนสอง ค่าที่ต้องการสร้าง เช่น false
+  fillArray(len: number, value: any) {
+    return new Array(len).fill(value);
+  }
 }

@@ -26,6 +26,7 @@
   --btn-secondary: #ffde1a;
   --btn-secondary-hover: #ffce00;
   --btn-text: white;
+  --btn-disabled: rgba(167, 162, 169, 0.4);
 
   --icon: #222823;
 

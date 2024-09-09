@@ -5,7 +5,8 @@ import { productDataList } from '../../../../assets/database/product-data-list';
 import { ReadTokenService } from '../../../services/auth/read-token.service';
 import { forkJoin, lastValueFrom, map, tap } from 'rxjs';
 import { CartService } from '../../../servicesSwagger/cart.service';
-import { CartDataService } from '../../../services/manage/cart-data.service';
+import { CartDataService } from '../../../services/cart/cart-data.service';
+import { CartApiUpdateService } from '../../../services/cart/cart-api-update.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -21,9 +22,8 @@ export class ProductDetailComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private readTk: ReadTokenService,
-    private cart: CartService,
-    private cartCal: CartDataService
+    private cartCal: CartDataService,
+    private cartUpdate: CartApiUpdateService
   ) {}
 
   ngOnInit(): void {
@@ -63,7 +63,7 @@ export class ProductDetailComponent {
 
   addCart() {
     //ไม่ส่งว่าต้องชำระเท่าไหร่ ให้ไปคำนวณใน cart เอา เพาะเผื่อมีการเปลี่ยนแปลงราคาสินค้า
-    this.cartCal.updateCart(this.productData, this.productQuantity);
+    this.cartUpdate.updateCartQuantity(this.productData, this.productQuantity);
   }
 
   receiveProductQuantity(event: {

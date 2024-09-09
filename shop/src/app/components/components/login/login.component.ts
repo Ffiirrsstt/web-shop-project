@@ -8,7 +8,6 @@ import { TokenService } from '../../../services/auth/token.service';
 import { Router } from '@angular/router';
 import { UserStoreService } from '../../../services/auth/user-store.service';
 import { DecodedTokenService } from '../../../services/auth/decoded-token.service';
-import { CartDataService } from '../../../services/manage/cart-data.service';
 
 @Component({
   selector: 'app-login',
@@ -29,8 +28,7 @@ export class LoginComponent {
     private token: TokenService,
     private decodedTk: DecodedTokenService,
     private router: Router,
-    private userStore: UserStoreService,
-    private cartCal: CartDataService
+    private userStore: UserStoreService
   ) {}
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
-import { environment } from '../../../../environments/environment.prod';
-import { RoutingService } from '../../../services/manage/routing.service';
-import { TokenService } from '../../../services/auth/token.service';
+import { environment } from '../../../../../environments/environment.prod';
+import { RoutingService } from '../../../../services/manage/routing.service';
+import { TokenService } from '../../../../services/auth/token.service';
 
 @Component({
   selector: 'app-nav',

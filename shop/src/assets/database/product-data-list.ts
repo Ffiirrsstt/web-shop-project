@@ -27,7 +27,7 @@ export const productDataList: ProductType[] = [
     ImgCover: '/assets/5s-2.jpeg',
     AllImg: ['/assets/5s-1.jpeg', '/assets/5s-2.jpeg'],
     Price: 199,
-    Inventory: 1,
+    Inventory: 10,
     Quantity: 0,
     Select: false,
   },

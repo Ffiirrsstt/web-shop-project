@@ -25,7 +25,8 @@ namespace api_shop.Controllers
 
         [Authorize]
         [HttpGet("getCart")]
-        public async Task<IActionResult> Signin(int id,string username)
+        /*selectDefault ถ้าเป็น true คือการตั้งค่าให้สินค้าในตะกร้า (filed Select) เป็น false ทั้งหมด (แสดงว่ายังไม่เลือกสินค้านั้นเพื่อแสดงผลในการชำระเงิน) - filed Select ใน Model ของ CartItem*/
+        public async Task<IActionResult> Signin(int id,string username, bool selectDefault =false)
         {
             if (id == null || username==null)
                 return ApiResponseController.ApiResponseInvalidReceived();
@@ -37,6 +38,12 @@ namespace api_shop.Controllers
                 {
                     Message = "Account not found for retrieving and displaying the shopping cart data."
                 });
+
+            if (selectDefault)
+            {
+                CartManage cart = new CartManage(_users);
+                await cart.settingFalseSelect(resultUser);
+            }
 
             return ApiResponseController.ApiResponseOk("Shopping cart data retrieved successfully.",
                 new{ cart = resultUser.CartDetail,}
@@ -59,7 +66,7 @@ namespace api_shop.Controllers
 
             CartManage cart = new CartManage(_users);
 
-            await cart.cartAddingChanging(user, userUpdateCart);
+            await cart.cartChanging(user, userUpdateCart);
 
             return ApiResponseController.ApiResponseOk("Shopping cart updated successfully.");
         }

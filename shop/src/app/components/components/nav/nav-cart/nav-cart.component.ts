@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CartDataService } from '../../../services/manage/cart-data.service';
+import { CartManageService } from '../../../../services/cart/cart-manage.service';
 
 @Component({
   selector: 'app-nav-cart',
@@ -8,14 +8,14 @@ import { CartDataService } from '../../../services/manage/cart-data.service';
 })
 export class NavCartComponent {
   sumQuantityCart!: number;
-  constructor(private cartCal: CartDataService) {}
+  constructor(private cartManage: CartManageService) {}
   ngOnInit(): void {
     this.useTogether();
-    this.cartCal.settingQuantityItemsCart();
+    this.cartManage.settingQuantityItemsCart();
   }
 
   useTogether() {
-    this.cartCal.sumQuantityCart$.subscribe((value) => {
+    this.cartManage.sumQuantityCart$.subscribe((value) => {
       this.sumQuantityCart = value;
     });
   }

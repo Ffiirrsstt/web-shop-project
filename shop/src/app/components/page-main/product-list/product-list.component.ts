@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { productDataList } from '../../../../assets/database/product-data-list';
 import { ProgressbarService } from '../../../services/components/progressbar.service';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -27,7 +26,7 @@ export class ProductListComponent {
     this.useTogether();
   }
 
-  openProductDetail(productId: string) {
+  openProductDetail(productId: number) {
     this.router.navigate(['/product', productId]);
     // this.router.navigate(['/product'], { queryParams: { productId: productId } });
   }

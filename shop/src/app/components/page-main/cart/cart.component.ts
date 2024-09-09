@@ -9,20 +9,19 @@ import { DataService } from '../../../services/manage/data.service';
 })
 export class CartComponent {
   //ไว้ใช้แสดงยอดชำระ และจำนวนสินค้าที่จะสั่งซื้อ
-  cartQuantityPay!: number;
-  cartPricePay!: number;
+  cartQuantityPay!: string;
+  cartPricePay!: string;
+
+  cartProductSelectedPay!: Array<boolean>;
+
   constructor(private data: DataService) {}
-  receiveDisplayPriceQuantity(event: Array<productPriceQuantityType>) {
-    this.settingDataDisplayQuantity(event);
-    this.settingDataDisplayPrice(event);
-  }
 
   settingDataDisplayQuantity(displayTotalPay: Array<productPriceQuantityType>) {
     const arrayQuantity = displayTotalPay.map(
       (item: productPriceQuantityType) => item.Quantity
     );
 
-    this.cartQuantityPay = this.data.sumArray(arrayQuantity);
+    this.cartQuantityPay = this.data.sumArray(arrayQuantity).toLocaleString();
   }
 
   settingDataDisplayPrice(displayTotalPay: Array<productPriceQuantityType>) {
@@ -30,6 +29,15 @@ export class CartComponent {
       (item: productPriceQuantityType) => item.PriceDisplay
     );
 
-    this.cartPricePay = this.data.sumArray(arrayPriceDisplay);
+    this.cartPricePay = this.data.sumArray(arrayPriceDisplay).toLocaleString();
+  }
+
+  receiveDisplayPriceQuantity(event: Array<productPriceQuantityType>) {
+    this.settingDataDisplayQuantity(event);
+    this.settingDataDisplayPrice(event);
+  }
+
+  receiveSelectProduct(productSelected: Array<boolean>) {
+    this.cartProductSelectedPay = productSelected;
   }
 }
