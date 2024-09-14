@@ -51,4 +51,22 @@ export class DataService {
     alert('ต้องระบุเป็นตัวเลขเท่านั้น');
     return false;
   }
+
+  joinedLettersAddingSpaces(Letters: string, tooLong: number) {
+    let count = 0;
+    let Sentence = '';
+    for (let ch of Letters) {
+      // เจอเว้นวรรคแล้ว count = 0 ไม่เจอเพิ่ม count
+      ch === ' ' ? (count = 0) : count++;
+      // เพิ่ม count จนเกินค่าที่กำหนดแล้ว(ไม่เจอเว้นวรรคภายในระยะที่กำหนด) ดังนั้นแทรกเว้นวรรคให้
+      if (count > tooLong) {
+        ch = ' ' + ch;
+        count = 0;
+      }
+      //เอาอักษรที่อาจเป็นอักษรต้นฉบับหรืออักษรที่แทรกเว้นวรรคเข้าไปแล้ว เข้าไปรวมกับอักษรตัวอื่น ๆ
+      Sentence += ch;
+    }
+
+    return Sentence;
+  }
 }

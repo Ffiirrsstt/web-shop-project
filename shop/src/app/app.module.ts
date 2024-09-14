@@ -33,6 +33,7 @@ import { NavCartComponent } from './components/components/nav/nav/nav-cart/nav-c
 import { NavComponent } from './components/components/nav/nav/nav/nav.component';
 import { NavListItemsComponent } from './components/components/nav/nav/nav-list-items/nav-list-items.component';
 import { InputTypeComponent } from './components/components/input-control/input-type/input-type.component';
+import { InputFileComponent } from './components/components/input-control/input-file/input-file.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { InputTypeComponent } from './components/components/input-control/input-
     NavComponent,
     NavListItemsComponent,
     InputTypeComponent,
+    InputFileComponent,
   ],
   imports: [
     BrowserModule,

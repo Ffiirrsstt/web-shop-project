@@ -6,6 +6,12 @@
         <form [formGroup]="AddProductSubmit" (ngSubmit)="onSubmitAddProduct()" class="text-base
         text-[var(--text-block)] space-y-5 ">
             <!-- ใส่ div เพื่อให้ space-y-5 ทำงานน่ะ -->
+            <div class="space-y-2">
+                <h3>Upload additional product listing images (no more than 10 images)</h3>
+                <div>
+                    <app-input-file></app-input-file>
+                </div>
+            </div>
             <div>
                 <app-input-type [submited]="submitFormBool" [form]="AddProductSubmit"
                     [control]="form.control(AddProductSubmit,'titleProduct')" [controlName]="'titleProduct'"

@@ -6,4 +6,5 @@ export const environment: IEnvironment = {
   alertDelay: 2000,
   logo: '/registration/assets/logoMAHIDOL.png',
   scrollSizeSlide: 100,
+  lettersJoined: 12,
 };

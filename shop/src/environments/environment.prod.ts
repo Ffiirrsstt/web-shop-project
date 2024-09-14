@@ -6,6 +6,7 @@ export const environment: IEnvironment = {
   alertDelay: 6000,
   logo: '/assets/logo.png',
   scrollSizeSlide: 100,
+  lettersJoined: 12,
 
   // accessAssets: '/assets/',
   // // apiUrl: 'http://localhost/registration/api',
