@@ -1,0 +1,21 @@
+<div *ngFor="let product of productListCheckout" class="flex space-x-3 mb-3 shadow-md p-4">
+    <img src="{{product.ImgCover}}" alt="{{product.Title}}" title="{{product.Title}}"
+        class="xxs:w-16 lg:w-24 rounded-md bg-[var(--bg-img)]">
+    <div class="flex justify-between  w-full">
+        <div>
+            <h4 class="text-lg min-w-max">{{ product.Title }}</h4>
+            <div class="flex space-x-3 text-xs text-[var(--text-secondary-dark)]">
+                <p>Inventory :;
+                </p>
+                <h6>
+                    ฿{{product.Inventory}}
+                </h6>
+            </div>
+        </div>
+        <div class="flex flex-col justify-between items-end font-semibold">
+            <h4 class="text-lg text-[var(--text-price)]">
+                ฿{{ (product.Price*product.Quantity).toLocaleString() }}</h4>
+            <h5 class="text-base text-[var(--text-main-dark)] ">x{{product.Quantity.toLocaleString()}}</h5>
+        </div>
+    </div>
+</div>

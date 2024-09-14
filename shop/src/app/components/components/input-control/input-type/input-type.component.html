@@ -1,0 +1,10 @@
+<div class="space-y-2">
+    <div class="space-x-1">
+        <label for="titleProduct" [class.error]="(submited||form.controls[controlName].dirty) 
+        && form.controls[controlName].hasError('required')">{{label}}</label>
+        <small *ngIf="req" class="error text-lg">*</small>
+    </div>
+    <input [formControl]="control" title="Please specify" [type]="typeInput" class="border border-[var(--border-input)] rounded-sm shadow-sm focus:outline-none 
+ w-full px-2 py-1" autocomplete="new-password" [placeholder]="placeholder" [class.error]="(submited||form.controls[controlName].dirty) 
+        && form.controls[controlName].hasError('required')">
+</div>
