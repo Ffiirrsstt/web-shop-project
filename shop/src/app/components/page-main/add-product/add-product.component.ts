@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { FormGroupService } from '../../../services/form/form-group.service';
 
 @Component({
@@ -23,9 +23,12 @@ export class AddProductComponent {
     this.AddProductSubmit = this.fb.group(this.form.setFormProduct());
   }
 
+  control() {
+    return this.AddProductSubmit.get('titleProduct')?.value as FormControl;
+  }
+
   onSubmitAddProduct() {
     this.submitFormBool = true;
-    console.log('test');
     if (this.AddProductSubmit.valid) {
       console.log(this.AddProductSubmit.get('titleProduct')?.value);
     }

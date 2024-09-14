@@ -32,6 +32,7 @@ import { BtnAddProductComponent } from './components/components/btn/btn-add-prod
 import { NavCartComponent } from './components/components/nav/nav/nav-cart/nav-cart.component';
 import { NavComponent } from './components/components/nav/nav/nav/nav.component';
 import { NavListItemsComponent } from './components/components/nav/nav/nav-list-items/nav-list-items.component';
+import { InputTypeComponent } from './components/components/input-control/input-type/input-type.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { NavListItemsComponent } from './components/components/nav/nav/nav-list-
     NavCartComponent,
     NavComponent,
     NavListItemsComponent,
+    InputTypeComponent,
   ],
   imports: [
     BrowserModule,

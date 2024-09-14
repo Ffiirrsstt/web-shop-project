@@ -5,8 +5,8 @@
 
         <form [formGroup]="AddProductSubmit" (ngSubmit)="onSubmitAddProduct()" class="text-base
         text-[var(--text-block)]">
-            <!-- <app-input-form-control-name-text [submited]="submitFormBool"
-                [form]="AddProductSubmit"></app-input-form-control-name-text> -->
+            <app-input-type [submited]="submitFormBool" [form]="AddProductSubmit" [controlName]="'titleProduct'"
+                [typeInput]="'text'" [req]="true" [control]="control()"></app-input-type>
 
             <app-btn-add-product [btnType]="'submit'"></app-btn-add-product>
         </form>
