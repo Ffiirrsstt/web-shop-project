@@ -14,9 +14,7 @@ namespace API.Model
     [Required(ErrorMessage = "- Please enter your password.")]
     public string Password { get; set; }
 
-    /*[Required(ErrorMessage = "- Please confirm your password.")] 
-     ไม่ req เพราะเวลา login ไม่ได้กรอกน่ะ
-    หมายเหตุ : password ปล่อยว่างไม่ได้อยู่แล้ว และถ้า ตัวยืนยันรหัสผ่านไม่ตรงกับรหัสผ่านก็ไม่ได้น่ะนะ*/
+    [Required(ErrorMessage = "- Please confirm your password.")] 
     [ConfirmPassword]
     public string PasswordConfirm { get; set; } = string.Empty;
 
@@ -29,8 +27,13 @@ namespace API.Model
     [Required(ErrorMessage = "Please enter your email address.")]
     [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
     public string Email { get; set; }*/
+
+    //เก็บเป็น json string
+    public string CartDetail { get; set; } = string.Empty;
     public string Token { get; set; } = string.Empty;
-    /*[AllowedValues("USER","ADMIN")]
-    public string Role { get; set; } = "USER";*/
+    public string RefreshToken { get; set; } = string.Empty;
+    public DateTime TokenExpiryTime { get; set; }
+    [AllowedValues("USER","ADMIN")]
+    public string Role { get; set; } = "USER";
   }
 }

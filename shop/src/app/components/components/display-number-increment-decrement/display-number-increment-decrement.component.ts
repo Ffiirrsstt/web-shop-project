@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { DataService } from '../../../services/manage/data.service';
 
 @Component({
   selector: 'app-display-number-increment-decrement',
@@ -7,31 +8,49 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class DisplayNumberIncrementDecrementComponent {
   @Input() inventory!: number;
-  @Output() sendProductAmount = new EventEmitter<number>();
-
   //จำนวนสินค้าที่ลูกค้าจะสั่งซื้อ
-  amount = 1;
+  @Input() productQuantity!: number;
+  @Input() index!: number;
+  @Output() sendProductQuantity = new EventEmitter<{
+    productIndex: number;
+    productQuantity: number;
+  }>();
 
-  decrementAmount() {
-    if (this.amount > 1) this.amount--;
-    this.sendAmount();
+  constructor(private data: DataService) {}
+
+  decrementQuantity() {
+    // เช็กว่าแปลงเป็นตัวเลขได้มั้ยอะนะ
+    if (!this.data.convertNumber(this.productQuantity)) return;
+
+    if (this.productQuantity > 1) this.productQuantity--;
+    this.sendQuantity();
   }
-  incrementAmount() {
-    if (this.amount < this.inventory) this.amount++;
-    this.sendAmount();
+  incrementQuantity() {
+    if (!this.data.convertNumber(this.productQuantity)) return;
+
+    if (this.productQuantity < this.inventory) this.productQuantity++;
+    this.sendQuantity();
   }
 
   //ทำงานเมื่อป้อนค่าเข้าไปทาง input น่ะ แต่ถ้ากดปุ่ม +/- มันไม่ทำงานนะ
-  checkAmount() {
+  checkQuantity() {
+    if (!this.data.convertNumber(this.productQuantity)) return;
+
     //ถ้าป้อนจำนวนที่ต้องการซื้อมากกว่าจำนวนสินค้าทั้งหมดที่มีในคลัง
     //จะทำการแก้ไขให้ตัวเลขกลายเป็นจำนวนสินค้าสูงสุดที่มีในคลังแทน(เท่าที่มีขาย)
-    if (this.amount > this.inventory) this.amount = this.inventory;
-    else if (this.amount <= 0) this.amount = 1; //ใส่สินค้าที่ต้องการซื้อเป็น 0 ชิ้นหรือติดลบ ให้แก้เป็น 1 ชิ้น
+    if (this.productQuantity > this.inventory)
+      this.productQuantity = this.inventory;
+    else if (this.productQuantity <= 0) this.productQuantity = 1; //ใส่สินค้าที่ต้องการซื้อเป็น 0 ชิ้นหรือติดลบ ให้แก้เป็น 1 ชิ้น
 
-    this.sendAmount();
+    this.sendQuantity();
   }
 
-  sendAmount() {
-    this.sendProductAmount.emit(this.amount);
+  sendQuantity() {
+    this.sendProductQuantity.emit({
+      productIndex: this.index,
+      productQuantity: this.productQuantity,
+    });
+
+    //บันทึกการเปลี่ยนแปลงตะกร้าสินค้าด้วย
   }
 }

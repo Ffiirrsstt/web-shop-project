@@ -1,11 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FormGroupService {
   constructor() {}
+
+  setFormProduct() {
+    return {
+      titleProduct: ['', Validators.required],
+      PriceProduct: ['', Validators.required],
+      InventoryProduct: ['', Validators.required],
+    };
+  }
+
+  control(form: FormGroup, controlName: string) {
+    return form.get(controlName) as FormControl;
+  }
 
   setFormSignup() {
     return {
