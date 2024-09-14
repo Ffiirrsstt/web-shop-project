@@ -1,0 +1,51 @@
+<div class="w-100 min-h-screen bg-[var(--bg-main)] ">
+    <app-nav></app-nav>
+
+    <div class="w-full xxs:px-4 pb-4 md:py-4">
+
+        <form [formGroup]="AddProductSubmit" (ngSubmit)="onSubmitAddProduct()" class="text-base
+        text-[var(--text-block)] space-y-5 ">
+            <!-- ใส่ div เพื่อให้ space-y-5 ทำงานน่ะ -->
+            <div>
+                <app-input-type [submited]="submitFormBool" [form]="AddProductSubmit"
+                    [control]="form.control(AddProductSubmit,'titleProduct')" [controlName]="'titleProduct'"
+                    [typeInput]="'text'" [req]="true" [label]="'Product Name'"
+                    [placeholder]="'Please specify the product name.'"></app-input-type>
+            </div>
+
+            <div>
+                <app-input-type [submited]="submitFormBool" [form]="AddProductSubmit"
+                    [control]="form.control(AddProductSubmit,'PriceProduct')" [controlName]="'PriceProduct'"
+                    [typeInput]="'number'" [req]="true" [label]="'Price'"
+                    [placeholder]="'Please specify the price of the product.'"></app-input-type>
+            </div>
+
+            <div>
+                <app-input-type [submited]="submitFormBool" [form]="AddProductSubmit"
+                    [control]="form.control(AddProductSubmit,'InventoryProduct')" [controlName]="'InventoryProduct'"
+                    [typeInput]="'number'" [req]="true" [label]="'Inventory'"
+                    [placeholder]="'Please specify the inventory quantity.'"></app-input-type>
+            </div>
+
+            <div>
+                <app-btn-add-product [btnType]="'submit'"></app-btn-add-product>
+            </div>
+        </form>
+    </div>
+
+    <!-- Id: 1,
+    ImgCover: '/assets/5s-1.jpeg',
+    AllImg: [
+      '/assets/5s-1.jpeg',
+      '/assets/5s-2.jpeg',
+      '/assets/9g-1.jpeg',
+      '/assets/9g-2.jpeg',
+      '/assets/5s-1.jpeg',
+      '/assets/5s-2.jpeg',
+      '/assets/9g-2.jpeg',
+      '/assets/5s-1.jpeg',
+      '/assets/5s-2.jpeg',
+    ],
+  
+ -->
+</div>

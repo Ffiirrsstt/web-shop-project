@@ -1,8 +1,10 @@
 export interface ProductType {
-  id: string;
-  title: string;
-  imgCover: string;
-  allImg: string[];
-  price: number;
-  inventory: number;
+  Id: number;
+  Title: string;
+  ImgCover: string;
+  AllImg: string[];
+  Price: number;
+  Inventory: number;
+  Quantity: number;
+  Select: boolean;
 }

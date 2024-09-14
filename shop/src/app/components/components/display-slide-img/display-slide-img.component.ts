@@ -27,7 +27,7 @@ export class DisplaySlideImgComponent {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    if (this.product) this.imgBigDisplay = this.product.allImg[0];
+    if (this.product) this.imgBigDisplay = this.product.AllImg[0];
   }
 
   ngAfterViewInit(): void {

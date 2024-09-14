@@ -2,25 +2,42 @@
 
     <app-nav-login-signup></app-nav-login-signup>
 
-    <div class="text-[var(--text-page-login-signup)] flex cursor-default
-    h-[610px] bg-[var(--bg-page-login-signup)]">
-        <div class="flex flex-col items-center justify-center w-1/2">
-            <img class="w-72 h-72" src="{{environments.logo}}" alt="Roxana Marketplace Logo">
-            <h1 class="text-5xl font-extrabold">Roxana</h1>
-            <h2 class="text-3xl font-semibold">Welcome to the Roxana Marketplace</h2>
+    <div class="text-[var(--text-page-login-signup)] 
+    flex cursor-default
+    flex-col xs:flex-row
+    space-y-6 xs:space-y-0
+    py-5 xs:py-0
+    xs:px-5 md:px-3 px-2
+    min-h-[610px] bg-[var(--bg-page-login-signup)] 
+    ">
+        <div class="flex base:flex flex-col xs:hidden space-y-2 items-center justify-center base:w-1/2">
+            <img class="xxxs:w-24 xxxs:h-24 xxs:w-48 xxs:h-48 md:w-56 md:h-56 lg:w-72 lg:h-72"
+                src="{{environments.logo}}" alt="Roxana Marketplace Logo">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold">Roxana</h1>
+            <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold xs:px-5 text-center">Welcome to the Roxana
+                Marketplace
+            </h2>
         </div>
-        <div class="flex-1 text-[var(--text-block-login-signup)] flex items-center justify-center">
-            <div class="bg-[var(--bg-block-login-signup)] w-[450px] h-[500px]
-             rounded-md p-4 space-y-8 text-base">
-                <h2 class="text-2xl font-semibold">{{isSignupPage?"Sign Up":"Log in"}}</h2>
+        <div class="flex-1 text-[var(--text-block-login-signup)] 
+        flex items-center justify-center
+       ">
+            <div class="
+            p-4 xxxs:p-8
+            bg-[var(--bg-block-login-signup)] 
+            w-full ms:w-[350px] md:w-[430px] lg:w-[450px] xxxs:h-[500px]
+             rounded-md space-y-8 text-base
+            ">
+                <h2 class="text-base xxxs:text-2xl font-semibold">{{isSignupPage?"Sign Up":"Log in"}}</h2>
 
                 <div>
-                    <app-login *ngIf="!isSignupPage"></app-login>
-                    <app-signup *ngIf="isSignupPage" (sendResponseSignup)="receiveResponseSignup($event)"></app-signup>
+                    <app-login *ngIf="!isSignupPage"
+                        (sendResponseLogin)="receiveResponseLoginSignup($event)"></app-login>
+                    <app-signup *ngIf="isSignupPage"
+                        (sendResponseSignup)="receiveResponseLoginSignup($event)"></app-signup>
                 </div>
 
                 <!-- link ไปอีกหน้า -->
-                <div class="flex justify-center space-x-2 text-base">
+                <div class="flex flex-col  xxs:flex-row justify-center text-center items-center space-x-2 text-base">
                     <h5>{{isSignupPage?"Have an account?":"New to Roxana?"}}</h5>
                     <a class="text-[var(--text-link)] hover:text-[var(--text-link-hover)]"
                         [href]="isSignupPage ? 'login' : 'signup'">
@@ -34,8 +51,14 @@
         </div>
     </div>
 
-    <app-alert *ngIf="messageAlert" [messageAlert]="messageAlert" [progressbar]="progress" [color]="color"
-        (sendMessageAlert)="receiveMessageAlert($event)"></app-alert>
+    <app-alert *ngIf="messageAlert" [messageAlert]="messageAlert" [color]="colorAlert" [title]="titleAlert"
+        [progressbar]="progress" (sendMessageAlert)="receiveMessageAlert($event)"></app-alert>
+
+
+    <!-- เอาไว้ตอนอยากแก้ไขหน้าตาของ alert น่ะ -->
+    <!-- <app-alert [messageAlert]="messageAlert" [progressbar]="progress" [color]="color"
+        (sendMessageAlert)="receiveMessageAlert($event)"></app-alert> -->
+
     <!-- <app-alert-ok *ngIf="messageAlertOk!=''" [messageAlert]="messageAlertOk" [progressbar]="progress"
         (sendMessageAlert)="receiveMessageAlertOk($event)"></app-alert-ok>  -->
 </div>

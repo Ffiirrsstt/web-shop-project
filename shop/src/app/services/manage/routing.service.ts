@@ -10,4 +10,12 @@ export class RoutingService {
   toIndexPage() {
     this.router.navigate(['/']);
   }
+
+  toAddProductPage() {
+    this.router.navigate(['/management/add/product']);
+  }
+
+  toCartPage(quantityCart: number) {
+    if (quantityCart > 0) this.router.navigate(['/cart']);
+  }
 }

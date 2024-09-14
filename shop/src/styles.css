@@ -5,10 +5,13 @@
 :root {
   --bg-main: #f4f6f6;
   --bg-alert: white;
+  --bg-img: white;
   --bg-nav: white;
   --bg-block-login-signup: white;
   --bg-page-login-signup: black;
 
+  --text-block-nav: black;
+  --text-block: black;
   --text-block-login-signup: black;
   --text-page-login-signup: #f4f6f6;
   --text-nav: #575a5e;
@@ -25,6 +28,7 @@
   --btn-secondary: #ffde1a;
   --btn-secondary-hover: #ffce00;
   --btn-text: white;
+  --btn-disabled: rgba(167, 162, 169, 0.4);
 
   --icon: #222823;
 
@@ -36,8 +40,22 @@
 
   --border-img: rgba(167, 162, 169, 0.4);
   --border-alert: var(--bg-block-dark);
+  --border-checkbox: var(--text-secondary-dark);
+  --border-input: rgba(167, 162, 169, 0.4);
 
   /* alert */
   --alert-ok: green;
   --alert-error: red;
+}
+
+input.error::placeholder {
+  color: red;
+}
+
+input.error {
+  border: 1px solid red !important;
+}
+
+.error {
+  color: red;
 }

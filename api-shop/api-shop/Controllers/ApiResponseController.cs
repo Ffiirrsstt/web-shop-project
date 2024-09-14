@@ -31,6 +31,6 @@ namespace api_shop.Controllers
             new ObjectResult(new ApiResponse(401, "Unauthorize", errors));
 
         public static IActionResult ApiResponseInvalidReceived() =>
-            ApiResponseBadRequest(errors: new { Request = "Invalid data received. User data is missing." });
+            ApiResponseBadRequest(errors: new { Request = "- Invalid data received. User data is missing." });
     }
 }

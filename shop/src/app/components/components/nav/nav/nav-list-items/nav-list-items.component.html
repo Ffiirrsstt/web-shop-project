@@ -1,0 +1,21 @@
+<div *ngIf="isOpen" class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg py-1 z-10">
+    <div *ngIf="!token.isLogin()">
+        <a href="login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[var(--bg-block)]">Login</a>
+        <a href="signup" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[var(--bg-block)]">Signup</a>
+    </div>
+    <div *ngIf="token.isLogin()">
+        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[var(--bg-block)]">Profile
+            Management</a>
+        <a *ngIf="role==='ADMIN'" href="management"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-[var(--bg-block)]">
+            Product Management</a>
+        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[var(--bg-block)]">Order History</a>
+        <div class="block px-4 py-2 text-sm" [ngClass]="{'text-[var(--text-block-nav)] cursor-pointer hover:bg-[var(--bg-block)]': sumQuantityCart > 0, 
+        'bg-[var(--btn-disabled)] text-[var(--text-secondary-dark)]': !sumQuantityCart}"
+            (click)="routing.toCartPage(sumQuantityCart)">Cart</div>
+    </div>
+    <div class="border-t bg-[var(--btn-disabled)]"></div>
+    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[var(--bg-block)]">Contact Us</a>
+    <button *ngIf="token.isLogin()" (click)="signout()"
+        class="block w-full text-left px-4 py-2 text-sm text-gray-700  hover:bg-[var(--bg-block)]">Logout</button>
+</div>

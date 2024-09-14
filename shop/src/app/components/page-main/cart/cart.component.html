@@ -1,0 +1,10 @@
+<div class="w-100 min-h-screen bg-[var(--bg-main)] ">
+    <!-- nav -->
+    <app-nav></app-nav>
+
+    <app-cart-list (sendProductDisplayPriceQuantity)="receiveDisplayPriceQuantity($event)"></app-cart-list>
+
+    <!-- ส่วนแสดงยอดรวมการชำระ ,การคลิกเพื่อไปหน้าชำระเงิน -->
+    <app-cart-payment [quantityPay]="cartQuantityPay" [pricePay]="cartPricePay"></app-cart-payment>
+
+</div>

@@ -17,12 +17,6 @@ export class SignupComponent {
 
   signupForm!: FormGroup;
 
-  isHidePassword = true;
-  //เก็บ password จริง ๆ เอาไว้ใช้แสดงผล
-  passwordDisplay: string = '';
-  isHidePasswordConfirm = true;
-  passwordDisplayConfirm: string = '';
-
   // เช็กว่ามีการ submit ไปยัง ใช้เวลาไม่แก้ไข input แต่กด submit ไปแล้วให้สามารถขึ้น error เตือนน่ะ (small)
   isSubmitted = false;
 
@@ -44,8 +38,8 @@ export class SignupComponent {
     this.isSubmitted = true;
     const dataSend = {
       username: this.signupForm.controls['username'].value,
-      password: this.signupForm.controls['password'].value,
-      passwordConfirm: this.signupForm.controls['passwordConfirm'].value,
+      password: this.signupForm.controls['password'].value, //เพราะไม่งั้นมันจะไปเก็บในฐานข้อมูลเป็น *** งี้น่ะ
+      passwordConfirm: this.signupForm.controls['passwordConfirm'].value, //เพราะไม่งั้นมันจะไปเก็บในฐานข้อมูลเป็น *** งี้น่ะ
     };
 
     await this.signup.apiSignup(dataSend).subscribe({
@@ -53,50 +47,11 @@ export class SignupComponent {
         this.sendResponseSignup.emit({ status: 200, message: res.message });
       },
       error: (err) => {
-        const message = this.data.displayError(err.error.errors);
+        console.log(err);
+        const message = this.data.displayError(err);
 
         this.sendResponseSignup.emit({ status: err.status, message });
       },
     });
-  }
-
-  onHidePassword(event: Event) {
-    this.passwordDisplay = this.pwd.onDisplayPassword(
-      event,
-      this.signupForm,
-      'password',
-      this.isHidePassword,
-      this.passwordDisplay
-    );
-  }
-
-  onHidePasswordConfirm(event: Event) {
-    this.passwordDisplayConfirm = this.pwd.onDisplayPassword(
-      event,
-      this.signupForm,
-      'passwordConfirm',
-      this.isHidePasswordConfirm,
-      this.passwordDisplayConfirm
-    );
-  }
-
-  onIsHidePassword() {
-    this.isHidePassword = !this.isHidePassword;
-    this.pwd.displayPassword(
-      this.signupForm,
-      this.isHidePassword,
-      this.passwordDisplay,
-      'password'
-    );
-  }
-
-  onIsHidePasswordConfirm() {
-    this.isHidePasswordConfirm = !this.isHidePasswordConfirm;
-    this.pwd.displayPassword(
-      this.signupForm,
-      this.isHidePasswordConfirm,
-      this.passwordDisplayConfirm,
-      'passwordConfirm'
-    );
   }
 }
