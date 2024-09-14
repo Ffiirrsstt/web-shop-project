@@ -1,11 +1,11 @@
 <div class="space-y-2">
     <div class="space-x-1">
-        <label for="titleProduct" [class.error]="(submited||form.controls['titleProduct'].dirty) 
-        && form.controls['titleProduct'].hasError('required')">Name of the product item</label>
-        <small class="error text-lg">*</small>
+        <label for="titleProduct" [class.error]="(submited||form.controls[controlName].dirty) 
+        && form.controls[controlName].hasError('required')">Name of the product item</label>
+        <small *ngIf="req" class="error text-lg">*</small>
     </div>
-    <input formControlName="titleProduct" title="Name of the product item" type="text" class="border border-[var(--border-input)] rounded-sm shadow-sm focus:outline-none 
+    <input [formControl]="control" title="Please specify" [type]="typeInput" class="border border-[var(--border-input)] rounded-sm shadow-sm focus:outline-none 
  w-full px-2 py-1" autocomplete="new-password" placeholder="Please provide the name of the product item to be sold."
-        [class.error]="(submited||form.controls['titleProduct'].dirty) 
-        && form.controls['titleProduct'].hasError('required')">
+        [class.error]="(submited||form.controls[controlName].dirty) 
+        && form.controls[controlName].hasError('required')">
 </div>

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-input-form-control-name-text',
@@ -9,4 +9,8 @@ import { FormGroup } from '@angular/forms';
 export class InputFormControlNameTextComponent {
   @Input() submited!: boolean;
   @Input() form!: FormGroup;
+  @Input() control!: FormControl;
+  @Input() controlName!: string;
+  @Input() typeInput!: boolean;
+  @Input() req!: boolean;
 }
