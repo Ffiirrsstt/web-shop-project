@@ -92,8 +92,7 @@ export class CartListComponent {
   }
 
   sendSelectedProductPay(index: number) {
-    // บันทึกการเปลี่ยนแปลง (เรื่องการเลือกรายการน่ะ เพื่อนำไปใช้ในการดึงข้อมูล (api) ตอนไปหน้าชำระเงิน)
-    this.cartUpdate.updateCartSelect(
+    this.cartList[index] = this.cartUpdate.updateCartSelect(
       this.cartList[index],
       this.productDisplayPriceQuantity[index].Select
     );

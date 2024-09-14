@@ -15,6 +15,7 @@ export class CartDataService {
   }
 
   calculateQuantityCart(cartJson: string) {
+    if (!cartJson) return 0;
     const cartArray = JSON.parse(cartJson);
 
     const cartArrayQuantity = cartArray.map(

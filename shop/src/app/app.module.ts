@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './components/page-main/main-page/main-page.component';
-import { NavComponent } from './components/components/nav/nav/nav.component';
+import { NavComponent } from './components/components/nav/nav/nav/nav.component';
 import { SearchComponent } from './components/components/search/search.component';
 import { ProductDetailComponent } from './components/page-main/product-detail/product-detail.component';
 import { PageLoadingComponent } from './components/page/page-loading/page-loading.component';
@@ -21,12 +21,17 @@ import { AlertOkComponent } from './components/components/alert/alert-ok/alert-o
 import { AlertErrorComponent } from './components/components/alert/alert-error/alert-error.component';
 import { AlertComponent } from './components/components/alert/alert/alert.component';
 import { authInterceptor } from './interceptors/auth.interceptor';
-import { NavCartComponent } from './components/components/nav/nav-cart/nav-cart.component';
+import { NavCartComponent } from './components/components/nav/nav/nav-cart/nav-cart.component';
 import { CartComponent } from './components/page-main/cart/cart.component';
 import { CartListComponent } from './components/components/cart/cart-list/cart-list.component';
 import { CartPaymentComponent } from './components/components/cart/cart-payment/cart-payment.component';
 import { CheckoutComponent } from './components/page-main/checkout/checkout.component';
 import { ProductListCheckoutComponent } from './components/components/checkout/product-list-checkout/product-list-checkout.component';
+import { NavListItemsComponent } from './components/components/nav/nav/nav-list-items/nav-list-items.component';
+import { ProductManageComponent } from './components/page-main/product-manage/product-manage.component';
+import { AddProductComponent } from './components/page-main/add-product/add-product.component';
+import { BtnAddProductComponent } from './components/components/btn/btn-add-product/btn-add-product.component';
+import { InputFormControlNameTextComponent } from './components/components/input/input-form-control-name-text/input-form-control-name-text.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +57,11 @@ import { ProductListCheckoutComponent } from './components/components/checkout/p
     CartPaymentComponent,
     CheckoutComponent,
     ProductListCheckoutComponent,
+    NavListItemsComponent,
+    ProductManageComponent,
+    AddProductComponent,
+    BtnAddProductComponent,
+    InputFormControlNameTextComponent,
   ],
   imports: [
     BrowserModule,

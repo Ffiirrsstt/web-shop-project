@@ -35,6 +35,7 @@ export class CartManageService {
   // ดึงเฉพาะรายการในหน้าจ่ายเงิน (Checkout)
   async retrieveCartPay(settingDefault: boolean = false) {
     const productPay = (await this.retrieveCart()) as ProductType[];
+    console.log(productPay);
     return this.cartCal.cartFilterSelected(productPay);
   }
 

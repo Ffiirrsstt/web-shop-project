@@ -7,6 +7,12 @@ import { Validators } from '@angular/forms';
 export class FormGroupService {
   constructor() {}
 
+  setFormProduct() {
+    return {
+      titleProduct: ['', Validators.required],
+    };
+  }
+
   setFormSignup() {
     return {
       username: ['', Validators.required],

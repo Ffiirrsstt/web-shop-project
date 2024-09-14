@@ -14,7 +14,7 @@
         </div>
         <div class="flex flex-col justify-between items-end font-semibold">
             <h4 class="text-lg text-[var(--text-price)]">
-                ฿{{ product.Price.toLocaleString() }}</h4>
+                ฿{{ (product.Price*product.Quantity).toLocaleString() }}</h4>
             <h5 class="text-base text-[var(--text-main-dark)] ">x{{product.Quantity.toLocaleString()}}</h5>
         </div>
     </div>

@@ -1,7 +1,7 @@
-import { Component, HostListener } from '@angular/core';
-import { environment } from '../../../../../environments/environment.prod';
-import { RoutingService } from '../../../../services/manage/routing.service';
-import { TokenService } from '../../../../services/auth/token.service';
+import { ChangeDetectorRef, Component, HostListener } from '@angular/core';
+import { environment } from '../../../../../../environments/environment.prod';
+import { RoutingService } from '../../../../../services/manage/routing.service';
+import { TokenService } from '../../../../../services/auth/token.service';
 
 @Component({
   selector: 'app-nav',
@@ -14,17 +14,22 @@ export class NavComponent {
   loggedIn = false;
   // loggedIn = true;
   isOpen = false;
+  quantityCart!: number;
 
-  constructor(private routing: RoutingService, public token: TokenService) {}
-  toIndexPage() {
-    this.routing.toIndexPage();
-
-    // this.token.isLogin()
-  }
+  constructor(
+    public routing: RoutingService,
+    public token: TokenService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   toggleDropdown(event: Event) {
     event.stopPropagation();
     this.isOpen = !this.isOpen;
+  }
+
+  receiveCountCart(count: number) {
+    this.quantityCart = count;
+    this.cdr.detectChanges();
   }
 
   // ปิด dropdown เมื่อคลิกที่ตำแหน่งอื่นบนเอกสาร
@@ -35,11 +40,5 @@ export class NavComponent {
     if (!target.closest('.relative')) {
       this.isOpen = false;
     }
-  }
-
-  signout() {
-    //เพื่อให้ปิด dropdown (ไม่งั้นมันจะขึ้นค้างเอาไว้น่ะ)
-    this.isOpen = false;
-    this.token.logout();
   }
 }

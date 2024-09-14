@@ -1,0 +1,16 @@
+<div class="w-100 min-h-screen bg-[var(--bg-main)] ">
+    <!-- nav -->
+    <app-nav></app-nav>
+
+    <div class="w-full xxs:px-4 pb-4 md:py-4">
+
+
+        <app-btn-add-product [btnType]="'button'" (click)="routing.toAddProductPage()"></app-btn-add-product>
+
+        <!-- Product List -->
+        <!-- รายการสินค้า -->
+        <!-- ในรูปแบบของแอดมิน คือสามารถจัดการแก้ไข ลบได้ -->
+        <app-product-list></app-product-list>
+    </div>
+
+</div>

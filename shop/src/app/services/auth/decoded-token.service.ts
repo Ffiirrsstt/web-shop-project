@@ -21,6 +21,11 @@ export class DecodedTokenService {
     if (dataPayload) return dataPayload.Id;
   }
 
+  getRole() {
+    const dataPayload = this.decodedToken();
+    if (dataPayload) return dataPayload.role;
+  }
+
   getUsername() {
     const dataPayload = this.decodedToken();
     if (dataPayload) return dataPayload.Username;

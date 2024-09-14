@@ -31,14 +31,14 @@ namespace API.Services
             var jwtTokenHandler = new JwtSecurityTokenHandler();
             var key = getKey();
             var identity = new ClaimsIdentity(new Claim[]{
-            new Claim(ClaimTypes.Name,user.Id.ToString()),
-            new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
+            //new Claim(ClaimTypes.Name,user.Id.ToString()),
+            //new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
+            new Claim(ClaimTypes.Role,user.Role),
             new Claim("Id",user.Id.ToString()),
             new Claim("Username",user.Username),
             //new Claim("Password",user.Password),
             //new Claim("FirstName",user.FirstName),
             //new Claim("LastName",user.LastName),
-            //new Claim(ClaimTypes.Role,user.Role)
           });
 
             var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);

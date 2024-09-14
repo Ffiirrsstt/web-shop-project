@@ -23,9 +23,10 @@ export class CartApiUpdateService {
   }
 
   updateCartSelect(productCart: ProductType, select: boolean) {
-    //ส่งเป้นตัวของชิ้นที่เปลี่ยนแปลงนะ (เฉพาะสินค้าที่เปลี่ยนแปลง)
-    const dataCart = { ...productCart, Select: select };
-    this.updateCart(dataCart);
+    const dataSend = { ...productCart, Select: select };
+    // บันทึกการเปลี่ยนแปลง (เรื่องการเลือกรายการน่ะ เพื่อนำไปใช้ในการดึงข้อมูล (api) ตอนไปหน้าชำระเงิน)
+    this.updateCart(dataSend);
+    return dataSend;
   }
 
   updateCart(dataCart: ProductType) {

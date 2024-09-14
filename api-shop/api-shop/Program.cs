@@ -1,8 +1,13 @@
 using API.Context;
+using api_shop.Context;
+using api_shop.Controllers;
+using api_shop.Services;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Stripe;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +19,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// ลงทะเบียน Payment กับค่า secretKey
+var secretKey = builder.Configuration["Stripe:SecretKey"];
+builder.Services.AddScoped(provider => new Payment(secretKey));
+
 builder.Services.AddCors(option => {
         option.AddPolicy("Policy", builder => {
             builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
@@ -22,6 +31,10 @@ builder.Services.AddCors(option => {
 );
 
 builder.Services.AddDbContext<UsersDbContext>(option => {
+    option.UseSqlServer(builder.Configuration.GetConnectionString("ConnectSqlStr"));
+});
+
+builder.Services.AddDbContext<ProductDbContext>(option => {
     option.UseSqlServer(builder.Configuration.GetConnectionString("ConnectSqlStr"));
 });
 

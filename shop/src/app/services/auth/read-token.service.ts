@@ -26,6 +26,12 @@ export class ReadTokenService {
       .pipe(map((value: number) => this.decodedTk.getId()));
   }
 
+  readRole() {
+    return this.userStore
+      .getRole()
+      .pipe(map((value: string) => this.decodedTk.getRole()));
+  }
+
   readIdUsername() {
     // ใช้ combineLatest เพื่อรวมค่าเป็น Observable เดียว
     return combineLatest([this.readId(), this.readUsername()]);
