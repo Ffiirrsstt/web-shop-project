@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { DataService } from '../../../services/manage/data.service';
 
 @Component({
   selector: 'app-display-number-increment-decrement',
@@ -15,17 +16,26 @@ export class DisplayNumberIncrementDecrementComponent {
     productQuantity: number;
   }>();
 
+  constructor(private data: DataService) {}
+
   decrementQuantity() {
+    // เช็กว่าแปลงเป็นตัวเลขได้มั้ยอะนะ
+    if (!this.data.convertNumber(this.productQuantity)) return;
+
     if (this.productQuantity > 1) this.productQuantity--;
     this.sendQuantity();
   }
   incrementQuantity() {
+    if (!this.data.convertNumber(this.productQuantity)) return;
+
     if (this.productQuantity < this.inventory) this.productQuantity++;
     this.sendQuantity();
   }
 
   //ทำงานเมื่อป้อนค่าเข้าไปทาง input น่ะ แต่ถ้ากดปุ่ม +/- มันไม่ทำงานนะ
   checkQuantity() {
+    if (!this.data.convertNumber(this.productQuantity)) return;
+
     //ถ้าป้อนจำนวนที่ต้องการซื้อมากกว่าจำนวนสินค้าทั้งหมดที่มีในคลัง
     //จะทำการแก้ไขให้ตัวเลขกลายเป็นจำนวนสินค้าสูงสุดที่มีในคลังแทน(เท่าที่มีขาย)
     if (this.productQuantity > this.inventory)

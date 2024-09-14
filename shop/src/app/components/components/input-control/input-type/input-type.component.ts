@@ -12,5 +12,7 @@ export class InputTypeComponent {
   @Input() control!: FormControl;
   @Input() controlName!: string;
   @Input() typeInput!: string;
+  @Input() label!: string;
+  @Input() placeholder!: string;
   @Input() req!: boolean;
 }

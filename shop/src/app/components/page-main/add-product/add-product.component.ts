@@ -13,7 +13,7 @@ export class AddProductComponent {
   //เอาไว้ให้ขึ้น error น่ะนะ
   submitFormBool = false;
 
-  constructor(private fb: FormBuilder, private form: FormGroupService) {}
+  constructor(private fb: FormBuilder, public form: FormGroupService) {}
 
   ngOnInit(): void {
     this.setForm();
@@ -21,10 +21,6 @@ export class AddProductComponent {
 
   setForm() {
     this.AddProductSubmit = this.fb.group(this.form.setFormProduct());
-  }
-
-  control() {
-    return this.AddProductSubmit.get('titleProduct')?.value as FormControl;
   }
 
   onSubmitAddProduct() {

@@ -41,4 +41,14 @@ export class DataService {
   fillArray(len: number, value: any) {
     return new Array(len).fill(value);
   }
+
+  //ใช้ร่วมกับ display-number-increment-decrement.component
+  // เอาไว้ใช้ลองแปลงว่าค่า data สามารถแปลงเป็นตัวเลขได้มั้ย
+  // ถ้าไม่ได้จะไม่นำค่า data ไปใช้ และจะ alert บอกว่าต้องเป้นตัวเลขน่ะ
+  convertNumber(data: string | number) {
+    const dataNumber = Number(data);
+    if (!isNaN(dataNumber)) return true;
+    alert('ต้องระบุเป็นตัวเลขเท่านั้น');
+    return false;
+  }
 }

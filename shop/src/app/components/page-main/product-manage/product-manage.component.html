@@ -4,8 +4,9 @@
 
     <div class="w-full xxs:px-4 pb-4 md:py-4">
 
-
-        <app-btn-add-product [btnType]="'button'" (click)="routing.toAddProductPage()"></app-btn-add-product>
+        <div class="flex items-center justify-end bg-[var(--bg-block-main)] w-full mb-4 p-2">
+            <app-btn-add-product [btnType]="'button'" (click)="routing.toAddProductPage()"></app-btn-add-product>
+        </div>
 
         <!-- Product List -->
         <!-- รายการสินค้า -->
