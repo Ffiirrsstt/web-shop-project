@@ -8,3 +8,7 @@ export interface ProductType {
   Quantity: number;
   Select: boolean;
 }
+export interface ProductImgType {
+  Title: string;
+  AllImg: string[];
+}

@@ -2,6 +2,11 @@ import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { FileCheckService } from '../../../../services/file/file-check.service';
 import { FileManageService } from '../../../../services/file/file-manage.service';
 import { FileNameService } from '../../../../services/file/file-name.service';
+import {
+  ProductImgType,
+  ProductType,
+} from '../../../../../assets/Model/product-type';
+import { FileDataService } from '../../../../services/file/file-data.service';
 
 @Component({
   selector: 'app-input-file',
@@ -11,6 +16,8 @@ import { FileNameService } from '../../../../services/file/file-name.service';
 export class InputFileComponent {
   //รีเซ็ต input file ให้สามารถกดเพิ่มไฟล์ซ้ำได้
   @ViewChildren('fileInput') fileInputs!: QueryList<ElementRef>;
+  productImgPreview!: ProductType;
+  // productImgPreview: ProductImgType = { Title: '', AllImg: [] };
 
   filesOriginal: File[] = [];
   filesModified: File[] = [];
@@ -18,8 +25,14 @@ export class InputFileComponent {
   constructor(
     private fileCheck: FileCheckService,
     private fileManage: FileManageService,
-    private fileName: FileNameService
-  ) {}
+    private fileName: FileNameService,
+    private fileData: FileDataService
+  ) {
+    this.productImgPreview = this.fileData.defaultValuePreviewImgProduct(
+      '',
+      []
+    );
+  }
 
   async onFileChange(event: Event) {
     const inputElement = event.target as HTMLInputElement;
@@ -39,9 +52,45 @@ export class InputFileComponent {
     // จัดการชื่อไฟล์ (ซ้ำ หรือไม่ซ้ำ และเว้นวรรคชื่อไฟล์ให้เรียบร้อยรองรับการมาแสดงผลแบบไม่ตกขอบ)
     // จริง ๆ ข้างบนเช็ดแล้วว่า files ไม่เป็น null น่ะ
     this.filterFileName(files as FileList);
+
     //   //อัปโหลดไฟล์
     //   this.uploadFile(environment.folderFile.folderTmp, id, title);
-    //   //รีเซ็ต input file ให้สามารถกดเพิ่มไฟล์ซ้ำได้
+
+    // จะจัดการให้แสดงรูปภาพน่ะ
+    Array.from(files as FileList).forEach((fileSelect) => {
+      // สร้างตัวแปร reader ซึ่งเป็นอินสแตนซ์ของ FileReader
+      const reader = new FileReader();
+
+      // เมื่อ reader.readAsDataURL() อ่านไฟล์เสร็จ จะทำให้ฟังก์ชัน onload ทำงาน
+      // จากการอ่านไฟล์ ข้อมูลถูกเก็บใน reader.result
+      reader.onload = (e) => {
+        // ถ้าใช้แต่ push เหมือนมันจะทำให้ใน components มันแยกการเปลี่ยนแปลงไม่ได้
+        // (ต้องแยกได้ จึงจะประมวลผลเพื่อแสดงรูปภาพอย่างเหมาะสม)
+        // this.productImgPreview = {
+        //   Title: this.productImgPreview.Title,
+        //   AllImg: this.productImgPreview.AllImg,
+        // };
+
+        this.productImgPreview = this.fileData.defaultValuePreviewImgProduct(
+          this.productImgPreview.Title,
+          this.productImgPreview.AllImg
+        );
+
+        // url ที่มีขอมูล Base64
+        const base64String = reader.result as string; // เก็บผลลัพธ์ Base64 ไว้
+        this.productImgPreview.AllImg.push(base64String);
+      };
+
+      //อ่านไฟล์ fileSelect แล้วแปลงไฟล์ให้เป็น Base64 URL.
+      reader.readAsDataURL(fileSelect); // อ่านไฟล์เป็น Base64
+    });
+
+    this.productImgPreview = this.fileData.defaultValuePreviewImgProduct(
+      this.productImgPreview.Title,
+      this.productImgPreview.AllImg
+    );
+
+    //   รีเซ็ต input file ให้สามารถกดเพิ่มไฟล์ซ้ำได้
     this.fileManage.resetFile(this.fileInputs);
   }
 

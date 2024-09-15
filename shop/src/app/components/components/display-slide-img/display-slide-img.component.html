@@ -1,7 +1,7 @@
-<img src="{{imgBigDisplay}}" alt="{{product.Title}}" title="{{product.Title}}"
+<img *ngIf="hasImages()" src="{{imgBigDisplay}}" alt="{{product.Title}}" title="{{product.Title}}"
     class="w-36 h-36 xxs:w-52 xxs:h-52 xs:w-80 xs:h-80 rounded-md p-2 border-b-2">
 
-<div class="w-36 xxs:w-52 xs:w-80 h-24 overflow-hidden flex items-center">
+<div *ngIf="hasImages()" class="w-36 xxs:w-52 xs:w-80 h-24 overflow-hidden flex items-center">
     <!-- ปุ่มเลื่อนไปทางซ้าย -->
     <div class="w-12 text-[var(--icon)] p-2 text-2xl">
         <svg *ngIf="canScrollLeft" (click)="scrollLeft()" class="w-4 cursor-pointer" xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,8 @@
     </div>
 
     <!-- รูปภาพที่ให้เลือกมาแสดงเป็นภาพใหญ่ -->
-    <div #slider id="slider" class="flex overflow-x-hidden scroll-smooth space-x-2">
+    <div #slider id="slider" class="flex overflow-x-hidden scroll-smooth space-x-2
+    bg-red-600 w-full">
         <div *ngFor="let item of product.AllImg" class="flex-shrink-0 w-16 h-16">
             <img src="{{item}}" alt="{{product.Title}}" class="w-full h-full rounded-md shadow-md border-1 cursor-pointer
                 border-[var(--border-img)]" (click)="changeDisplayImgBig(item)">
