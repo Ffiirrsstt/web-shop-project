@@ -68,7 +68,7 @@
               "RelativeDocumentMoniker": "api-shop\\Model\\Products.cs",
               "ToolTip": "D:\\project\\web-shop-project\\api-shop\\api-shop\\Model\\Products.cs",
               "RelativeToolTip": "api-shop\\Model\\Products.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAwwCIAAAAAAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAowCIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-14T18:07:24.767Z",
               "EditorCaption": ""
@@ -83,8 +83,7 @@
               "RelativeToolTip": "api-shop\\appsettings.json",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-30T14:49:30.191Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-30T14:49:30.191Z"
             },
             {
               "$type": "Document",
@@ -96,8 +95,7 @@
               "RelativeToolTip": "api-shop\\Program.cs",
               "ViewState": "AQIAABwAAAAAAAAAAAAAADkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T14:43:45.884Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-30T14:43:45.884Z"
             },
             {
               "$type": "Document",
@@ -109,8 +107,7 @@
               "RelativeToolTip": "api-shop\\Context\\UsersDbContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T18:13:05.377Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-30T18:13:05.377Z"
             },
             {
               "$type": "Document",
@@ -122,8 +119,7 @@
               "RelativeToolTip": "api-shop\\Controllers\\ApiResponseController.cs",
               "ViewState": "AQIAABsAAAAAAAAAAAAmwCAAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T15:03:16.211Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T15:03:16.211Z"
             },
             {
               "$type": "Document",
@@ -135,8 +131,7 @@
               "RelativeToolTip": "api-shop\\Model\\Users.cs",
               "ViewState": "AQIAABkAAAAAAAAAAAAkwA0AAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T14:50:34.598Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T14:50:34.598Z"
             },
             {
               "$type": "Document",
@@ -148,8 +143,7 @@
               "RelativeToolTip": "api-shop\\Services\\Token.cs",
               "ViewState": "AQIAAFsAAAAAAAAAAAAiwFwAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T14:50:07.016Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T14:50:07.016Z"
             },
             {
               "$type": "Document",
@@ -161,8 +155,7 @@
               "RelativeToolTip": "api-shop\\Controllers\\SignupController.cs",
               "ViewState": "AQIAABoAAAAAAAAAAAAQwCUAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T14:49:39.102Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T14:49:39.102Z"
             },
             {
               "$type": "Document",
@@ -174,8 +167,7 @@
               "RelativeToolTip": "api-shop\\Controllers\\LoginController.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAAAADUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T14:41:18.05Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T14:41:18.05Z"
             },
             {
               "$type": "Document",
@@ -187,8 +179,7 @@
               "RelativeToolTip": "api-shop\\Services\\CheckUser.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T14:46:20.661Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T14:46:20.661Z"
             }
           ]
         }
